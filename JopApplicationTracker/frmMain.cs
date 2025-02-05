@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Data.Entity.Migrations.Model;
 
 namespace JopApplicationTracker
 {
@@ -18,7 +21,7 @@ namespace JopApplicationTracker
         }
 
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAddJob_Click(object sender, EventArgs e)
         {
             frmAddApplication f = new frmAddApplication();
             f.ShowDialog();
@@ -26,30 +29,30 @@ namespace JopApplicationTracker
 
         private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Hitch your wagon to a star 🫵🤘 \nVersion 5.2.0","Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Hitch your wagon to a star 🫵🤘 \nVersion 5.2.0", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Application.Exit(); 
+            Application.Exit();
         }
 
         private void newJobToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAddApplication f = new frmAddApplication();  
+            frmAddApplication f = new frmAddApplication();
             f.ShowDialog();
         }
 
         private void newStateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAddState f = new frmAddState();
-            f.ShowDialog(); 
+            f.ShowDialog();
         }
 
         private void newWebsiteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAddWebsite f = new frmAddWebsite();
-            f.ShowDialog(); 
+            f.ShowDialog();
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -59,18 +62,31 @@ namespace JopApplicationTracker
 
         public void fillUpDgvJobs()
         {
-            dgvJobs.Rows.Clear();
-            //using (JobApplicationDBEntities db = new JobApplicationDBEntities())
-            //{
-            //    var jobs = db.Jobs.ToList();
-            //    foreach (var job in jobs)
-            //    {
-            //        dgvJobs.Rows.Add(job.JobID, job.JobTitle, job.JobState, job.JobWebsite, job.JobDate);
-            //    }
-            //}
+            string connectionString = ConfigurationManager.ConnectionStrings["conn"].ConnectionString;
 
+            string query = "SELECT * FROM Applications a INNER JOIN States s ON a.StateId = s.Id INNER JOIN WorkEnvironments w ON a.WorkEnvironmentId = w.Id INNER JOIN ApplicationWebsites aw ON a.ApplicationWebsiteId = aw.Id;";
 
+            SqlDataAdapter adapter = new SqlDataAdapter(query, connectionString);
 
+            DataTable dt = new DataTable();
+
+            adapter.Fill(dt);
+
+            dgvJobs.DataSource = dt;
+
+            dgvJobs.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        private void btnAddState_Click(object sender, EventArgs e)
+        {
+            frmAddState f = new frmAddState();
+            f.ShowDialog();
+        }
+
+        private void btnWebsite_Click(object sender, EventArgs e)
+        {
+            frmAddWebsite f = new frmAddWebsite();
+            f.ShowDialog();
         }
     }
 }
