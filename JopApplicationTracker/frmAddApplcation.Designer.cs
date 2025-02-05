@@ -44,7 +44,6 @@
             this.cmbApplicationWebSite = new System.Windows.Forms.ComboBox();
             this.cmbWorkEnv = new System.Windows.Forms.ComboBox();
             this.cmbState = new System.Windows.Forms.ComboBox();
-            this.txtAppDate = new System.Windows.Forms.TextBox();
             this.txtNotes = new System.Windows.Forms.TextBox();
             this.txtSalaryYear = new System.Windows.Forms.TextBox();
             this.txtSalaryHour = new System.Windows.Forms.TextBox();
@@ -55,6 +54,7 @@
             this.txtCompanyName = new System.Windows.Forms.TextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.cmbStatus = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.applicationsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,17 +102,17 @@
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(67, 780);
+            this.label9.Location = new System.Drawing.Point(67, 774);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(168, 30);
+            this.label9.Size = new System.Drawing.Size(69, 30);
             this.label9.TabIndex = 37;
-            this.label9.Text = "Application Date";
+            this.label9.Text = "Status";
             // 
             // label8
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(67, 691);
+            this.label8.Location = new System.Drawing.Point(67, 601);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(148, 30);
             this.label8.TabIndex = 36;
@@ -122,7 +122,7 @@
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(67, 601);
+            this.label7.Location = new System.Drawing.Point(67, 511);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(155, 30);
             this.label7.TabIndex = 35;
@@ -132,7 +132,7 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(67, 513);
+            this.label6.Location = new System.Drawing.Point(67, 423);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(198, 30);
             this.label6.TabIndex = 32;
@@ -142,7 +142,7 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(67, 424);
+            this.label5.Location = new System.Drawing.Point(67, 689);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(249, 30);
             this.label5.TabIndex = 31;
@@ -182,7 +182,7 @@
             // 
             this.cmbApplicationWebSite.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbApplicationWebSite.FormattingEnabled = true;
-            this.cmbApplicationWebSite.Location = new System.Drawing.Point(372, 510);
+            this.cmbApplicationWebSite.Location = new System.Drawing.Point(372, 420);
             this.cmbApplicationWebSite.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbApplicationWebSite.Name = "cmbApplicationWebSite";
             this.cmbApplicationWebSite.Size = new System.Drawing.Size(494, 38);
@@ -208,16 +208,6 @@
             this.cmbState.Size = new System.Drawing.Size(494, 38);
             this.cmbState.TabIndex = 20;
             // 
-            // txtAppDate
-            // 
-            this.txtAppDate.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtAppDate.Location = new System.Drawing.Point(372, 777);
-            this.txtAppDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtAppDate.Name = "txtAppDate";
-            this.txtAppDate.ReadOnly = true;
-            this.txtAppDate.Size = new System.Drawing.Size(494, 35);
-            this.txtAppDate.TabIndex = 21;
-            // 
             // txtNotes
             // 
             this.txtNotes.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -231,7 +221,7 @@
             // txtSalaryYear
             // 
             this.txtSalaryYear.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtSalaryYear.Location = new System.Drawing.Point(372, 688);
+            this.txtSalaryYear.Location = new System.Drawing.Point(372, 598);
             this.txtSalaryYear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSalaryYear.Name = "txtSalaryYear";
             this.txtSalaryYear.Size = new System.Drawing.Size(494, 35);
@@ -240,7 +230,7 @@
             // txtSalaryHour
             // 
             this.txtSalaryHour.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtSalaryHour.Location = new System.Drawing.Point(372, 598);
+            this.txtSalaryHour.Location = new System.Drawing.Point(372, 508);
             this.txtSalaryHour.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSalaryHour.Name = "txtSalaryHour";
             this.txtSalaryHour.Size = new System.Drawing.Size(494, 35);
@@ -249,7 +239,7 @@
             // txtRequiredTools
             // 
             this.txtRequiredTools.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtRequiredTools.Location = new System.Drawing.Point(372, 421);
+            this.txtRequiredTools.Location = new System.Drawing.Point(372, 686);
             this.txtRequiredTools.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtRequiredTools.Name = "txtRequiredTools";
             this.txtRequiredTools.Size = new System.Drawing.Size(494, 35);
@@ -311,11 +301,20 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
+            // cmbStatus
+            // 
+            this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Location = new System.Drawing.Point(372, 771);
+            this.cmbStatus.Name = "cmbStatus";
+            this.cmbStatus.Size = new System.Drawing.Size(494, 38);
+            this.cmbStatus.TabIndex = 42;
+            // 
             // frmAddApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(936, 1171);
+            this.Controls.Add(this.cmbStatus);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -331,7 +330,6 @@
             this.Controls.Add(this.cmbApplicationWebSite);
             this.Controls.Add(this.cmbWorkEnv);
             this.Controls.Add(this.cmbState);
-            this.Controls.Add(this.txtAppDate);
             this.Controls.Add(this.txtNotes);
             this.Controls.Add(this.txtSalaryYear);
             this.Controls.Add(this.txtSalaryHour);
@@ -344,9 +342,11 @@
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAddApplication";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Application";
+            this.Load += new System.EventHandler(this.frmAddApplication_Load);
             ((System.ComponentModel.ISupportInitialize)(this.applicationsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -370,7 +370,6 @@
         private System.Windows.Forms.ComboBox cmbApplicationWebSite;
         private System.Windows.Forms.ComboBox cmbWorkEnv;
         private System.Windows.Forms.ComboBox cmbState;
-        private System.Windows.Forms.TextBox txtAppDate;
         private System.Windows.Forms.TextBox txtNotes;
         private System.Windows.Forms.TextBox txtSalaryYear;
         private System.Windows.Forms.TextBox txtSalaryHour;
@@ -381,6 +380,7 @@
         private System.Windows.Forms.TextBox txtCompanyName;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.ComboBox cmbStatus;
     }
 }
 

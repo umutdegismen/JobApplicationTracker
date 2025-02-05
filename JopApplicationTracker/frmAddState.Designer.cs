@@ -94,6 +94,7 @@
             this.Controls.Add(this.txtStates);
             this.Controls.Add(this.btnAddStateList);
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAddState";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add State";

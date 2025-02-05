@@ -21,12 +21,18 @@ namespace JopApplicationTracker
         }
 
 
-        private void btnAddJob_Click(object sender, EventArgs e)
+        private void frmMain_Load(object sender, EventArgs e)
         {
-            frmAddApplication f = new frmAddApplication();
-            f.ShowDialog();
+            fillUpDgvJobs();
         }
 
+
+
+
+
+
+
+        // menu strip click events
         private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Hitch your wagon to a star 🫵🤘 \nVersion 5.2.0", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -39,27 +45,74 @@ namespace JopApplicationTracker
 
         private void newJobToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            openAddApplicationForm();
+        }
+
+        private void btnAddJob_Click(object sender, EventArgs e)
+        {
+            openAddApplicationForm();
+        }
+
+        private void newStateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openAddStateForm();
+        }
+
+        private void btnAddState_Click(object sender, EventArgs e)
+        {
+            openAddStateForm();
+        }
+
+        private void newWebsiteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openAddWebsiteForm();
+        }
+
+        private void btnWebsite_Click(object sender, EventArgs e)
+        {
+            openAddWebsiteForm();
+        }
+
+        private void newEnvironmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openAddJobTypeForm();
+        }
+
+        private void btnAddJobType_Click(object sender, EventArgs e)
+        {
+            openAddJobTypeForm();
+        }
+
+
+
+        // form openning methods
+
+        private void openAddApplicationForm()
+        {
             frmAddApplication f = new frmAddApplication();
             f.ShowDialog();
         }
 
-        private void newStateToolStripMenuItem_Click(object sender, EventArgs e)
+        private void openAddJobTypeForm()
+        {
+            frmAddJobType f = new frmAddJobType();
+            f.ShowDialog();
+        }
+        private void openAddWebsiteForm()
+        {
+            frmAddWebsite f = new frmAddWebsite();
+            f.ShowDialog();
+        }
+        private void openAddStateForm()
         {
             frmAddState f = new frmAddState();
             f.ShowDialog();
         }
 
-        private void newWebsiteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmAddWebsite f = new frmAddWebsite();
-            f.ShowDialog();
-        }
 
-        private void frmMain_Load(object sender, EventArgs e)
-        {
-            fillUpDgvJobs();
-        }
 
+
+        // page load methods
         public void fillUpDgvJobs()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["conn"].ConnectionString;
@@ -75,18 +128,6 @@ namespace JopApplicationTracker
             dgvJobs.DataSource = dt;
 
             dgvJobs.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-        }
-
-        private void btnAddState_Click(object sender, EventArgs e)
-        {
-            frmAddState f = new frmAddState();
-            f.ShowDialog();
-        }
-
-        private void btnWebsite_Click(object sender, EventArgs e)
-        {
-            frmAddWebsite f = new frmAddWebsite();
-            f.ShowDialog();
         }
     }
 }
