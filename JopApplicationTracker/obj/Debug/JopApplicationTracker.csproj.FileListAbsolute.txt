@@ -16,3 +16,6 @@ C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\bin\Debu
 C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\bin\Debug\EntityFramework.xml
 C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\obj\Debug\JopAppli.75FA8C42.Up2Date
+C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\obj\Debug\JopApplicationTracker.frmAddStateList.resources

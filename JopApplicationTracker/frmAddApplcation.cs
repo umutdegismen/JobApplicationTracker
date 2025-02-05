@@ -16,5 +16,15 @@ namespace JopApplicationTracker
         {
             InitializeComponent();
         }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            saveApplication();
+        }
+
+        private void saveApplication()
+        {
+
+        }
     }
 }

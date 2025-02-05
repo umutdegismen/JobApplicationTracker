@@ -31,6 +31,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtStates = new System.Windows.Forms.TextBox();
             this.btnAddStateList = new System.Windows.Forms.Button();
+            this.btnStateList = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -38,32 +40,56 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(271, 25);
+            this.label1.Size = new System.Drawing.Size(127, 25);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Enter a state or a list of states:";
+            this.label1.Text = "Enter a state:";
             // 
             // txtStates
             // 
-            this.txtStates.Location = new System.Drawing.Point(12, 70);
-            this.txtStates.Multiline = true;
+            this.txtStates.Location = new System.Drawing.Point(12, 72);
             this.txtStates.Name = "txtStates";
-            this.txtStates.Size = new System.Drawing.Size(532, 533);
+            this.txtStates.Size = new System.Drawing.Size(361, 29);
             this.txtStates.TabIndex = 4;
             // 
             // btnAddStateList
             // 
-            this.btnAddStateList.Location = new System.Drawing.Point(96, 623);
+            this.btnAddStateList.Location = new System.Drawing.Point(243, 117);
             this.btnAddStateList.Name = "btnAddStateList";
-            this.btnAddStateList.Size = new System.Drawing.Size(364, 73);
+            this.btnAddStateList.Size = new System.Drawing.Size(130, 43);
             this.btnAddStateList.TabIndex = 3;
             this.btnAddStateList.Text = "Save";
             this.btnAddStateList.UseVisualStyleBackColor = true;
+            this.btnAddStateList.Click += new System.EventHandler(this.btnAddStateList_Click);
+            // 
+            // btnStateList
+            // 
+            this.btnStateList.Location = new System.Drawing.Point(12, 117);
+            this.btnStateList.Name = "btnStateList";
+            this.btnStateList.Size = new System.Drawing.Size(192, 88);
+            this.btnStateList.TabIndex = 6;
+            this.btnStateList.Text = "Add List of States";
+            this.btnStateList.UseVisualStyleBackColor = true;
+            this.btnStateList.Click += new System.EventHandler(this.btnStateList_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Location = new System.Drawing.Point(243, 167);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(130, 43);
+            this.btnCancel.TabIndex = 7;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // frmAddState
             // 
+            this.AcceptButton = this.btnAddStateList;
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(556, 717);
+            this.CancelButton = this.btnCancel;
+            this.ClientSize = new System.Drawing.Size(385, 217);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnStateList);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtStates);
             this.Controls.Add(this.btnAddStateList);
@@ -81,5 +107,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtStates;
         private System.Windows.Forms.Button btnAddStateList;
+        private System.Windows.Forms.Button btnStateList;
+        private System.Windows.Forms.Button btnCancel;
     }
 }
