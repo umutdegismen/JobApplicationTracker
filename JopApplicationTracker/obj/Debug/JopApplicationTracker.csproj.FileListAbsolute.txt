@@ -2,6 +2,7 @@ C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\bin\Debu
 C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\bin\Debug\JopApplicationTracker.exe
 C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\bin\Debug\JopApplicationTracker.pdb
 C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\obj\Debug\JopApplicationTracker.csproj.AssemblyReference.cache
+C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\obj\Debug\JopApplicationTracker.frmAddApplication.resources
 C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\obj\Debug\JopApplicationTracker.frmAddState.resources
 C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\obj\Debug\JopApplicationTracker.frmAddWebsite.resources
 C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\obj\Debug\JopApplicationTracker.frmMain.resources
@@ -10,4 +11,8 @@ C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\obj\Debu
 C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\obj\Debug\JopApplicationTracker.csproj.CoreCompileInputs.cache
 C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\obj\Debug\JopApplicationTracker.exe
 C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\obj\Debug\JopApplicationTracker.pdb
-C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\obj\Debug\JopApplicationTracker.frmAddApplication.resources
+C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\bin\Debug\EntityFramework.dll
+C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\bin\Debug\EntityFramework.xml
+C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\obj\Debug\JopAppli.75FA8C42.Up2Date

@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JobApplicationDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Application">
+    <Key>
+      <PropertyRef Name="JobId" />
+    </Key>
+    <Property Name="JobId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="StateId" Type="Int32" />
+    <Property Name="WorkEnvironmentId" Type="Int32" />
+    <Property Name="RequiredAdditionalTools" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ApplicationWebsiteId" Type="Int32" />
+    <Property Name="SalaryPerHour" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="SalaryPerYear" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="ApplicationDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="7" />
+    <Property Name="Notes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ApplicationWebsite" Relationship="Self.FK_Applications_ApplicationWebsites" FromRole="Applications" ToRole="ApplicationWebsites" />
+    <NavigationProperty Name="State" Relationship="Self.FK_Applications_States" FromRole="Applications" ToRole="States" />
+    <NavigationProperty Name="WorkEnvironment" Relationship="Self.FK_Applications_WorkEnvironments" FromRole="Applications" ToRole="WorkEnvironments" />
+  </EntityType>
+  <EntityType Name="ApplicationWebsite">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ApplicationWebsite1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Applications" Relationship="Self.FK_Applications_ApplicationWebsites" FromRole="ApplicationWebsites" ToRole="Applications" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="State1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Applications" Relationship="Self.FK_Applications_States" FromRole="States" ToRole="Applications" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="WorkEnvironment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WorkEnvironment1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Applications" Relationship="Self.FK_Applications_WorkEnvironments" FromRole="WorkEnvironments" ToRole="Applications" />
+  </EntityType>
+  <Association Name="FK_Applications_ApplicationWebsites">
+    <End Role="ApplicationWebsites" Type="Self.ApplicationWebsite" Multiplicity="0..1" />
+    <End Role="Applications" Type="Self.Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ApplicationWebsites">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Applications">
+        <PropertyRef Name="ApplicationWebsiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Applications_States">
+    <End Role="States" Type="Self.State" Multiplicity="0..1" />
+    <End Role="Applications" Type="Self.Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="States">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Applications">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Applications_WorkEnvironments">
+    <End Role="WorkEnvironments" Type="Self.WorkEnvironment" Multiplicity="0..1" />
+    <End Role="Applications" Type="Self.Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WorkEnvironments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Applications">
+        <PropertyRef Name="WorkEnvironmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="JobApplicationDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Applications" EntityType="Self.Application" />
+    <EntitySet Name="ApplicationWebsites" EntityType="Self.ApplicationWebsite" />
+    <EntitySet Name="States" EntityType="Self.State" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="WorkEnvironments" EntityType="Self.WorkEnvironment" />
+    <AssociationSet Name="FK_Applications_ApplicationWebsites" Association="Self.FK_Applications_ApplicationWebsites">
+      <End Role="ApplicationWebsites" EntitySet="ApplicationWebsites" />
+      <End Role="Applications" EntitySet="Applications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Applications_States" Association="Self.FK_Applications_States">
+      <End Role="States" EntitySet="States" />
+      <End Role="Applications" EntitySet="Applications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Applications_WorkEnvironments" Association="Self.FK_Applications_WorkEnvironments">
+      <End Role="WorkEnvironments" EntitySet="WorkEnvironments" />
+      <End Role="Applications" EntitySet="Applications" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

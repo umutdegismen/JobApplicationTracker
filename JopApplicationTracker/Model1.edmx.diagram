@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1f2828e8403d4482b4332fdaf3d91403" Name="Diagram1">
+        <EntityTypeShape EntityType="JobApplicationDBModel.Application" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JobApplicationDBModel.ApplicationWebsite" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="JobApplicationDBModel.State" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="JobApplicationDBModel.sysdiagram" Width="1.5" PointX="5.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="JobApplicationDBModel.WorkEnvironment" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="JobApplicationDBModel.FK_Applications_ApplicationWebsites" ManuallyRouted="false" />
+        <AssociationConnector Association="JobApplicationDBModel.FK_Applications_States" ManuallyRouted="false" />
+        <AssociationConnector Association="JobApplicationDBModel.FK_Applications_WorkEnvironments" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

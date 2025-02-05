@@ -17,6 +17,7 @@ namespace JopApplicationTracker
             InitializeComponent();
         }
 
+
         private void button1_Click(object sender, EventArgs e)
         {
             frmAddApplication f = new frmAddApplication();
@@ -25,7 +26,7 @@ namespace JopApplicationTracker
 
         private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Hitch your wagon to a star 🫵🤘 \nv1.0.0","Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Hitch your wagon to a star 🫵🤘 \nVersion 5.2.0","Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -49,6 +50,27 @@ namespace JopApplicationTracker
         {
             frmAddWebsite f = new frmAddWebsite();
             f.ShowDialog(); 
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            fillUpDgvJobs();
+        }
+
+        public void fillUpDgvJobs()
+        {
+            dgvJobs.Rows.Clear();
+            //using (JobApplicationDBEntities db = new JobApplicationDBEntities())
+            //{
+            //    var jobs = db.Jobs.ToList();
+            //    foreach (var job in jobs)
+            //    {
+            //        dgvJobs.Rows.Add(job.JobID, job.JobTitle, job.JobState, job.JobWebsite, job.JobDate);
+            //    }
+            //}
+
+
+
         }
     }
 }
