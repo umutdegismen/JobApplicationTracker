@@ -41,7 +41,7 @@ namespace JopApplicationTracker
             string statesInTxtbox = txtStatesList.Text;
 
             // Split the input by newline characters, trimming any leading or trailing spaces
-            string[] states = statesInTxtbox.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] states = statesInTxtbox.Split ( new[] { '\r', '\n', ',' }, StringSplitOptions.RemoveEmptyEntries);
 
             foreach (string state in states)
             {

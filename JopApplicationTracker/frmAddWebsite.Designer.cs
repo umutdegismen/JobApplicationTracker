@@ -36,7 +36,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(243, 117);
+            this.btnSave.Location = new System.Drawing.Point(304, 117);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(130, 43);
             this.btnSave.TabIndex = 1;
@@ -49,15 +49,15 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(229, 25);
+            this.label1.Size = new System.Drawing.Size(192, 25);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Job Application Website:";
+            this.label1.Text = "Enter a new website:";
             // 
             // txtWebsite
             // 
             this.txtWebsite.Location = new System.Drawing.Point(12, 72);
             this.txtWebsite.Name = "txtWebsite";
-            this.txtWebsite.Size = new System.Drawing.Size(361, 29);
+            this.txtWebsite.Size = new System.Drawing.Size(422, 29);
             this.txtWebsite.TabIndex = 0;
             // 
             // btnCancel
@@ -76,12 +76,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(385, 180);
+            this.ClientSize = new System.Drawing.Size(446, 180);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtWebsite);
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAddWebsite";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Website";

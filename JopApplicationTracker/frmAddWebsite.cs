@@ -21,7 +21,7 @@ namespace JopApplicationTracker
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if(txtWebsite.Text == "")
+            if (txtWebsite.Text == "")
             {
                 MessageBox.Show("Please enter a website!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -34,15 +34,31 @@ namespace JopApplicationTracker
         private void saveWebsite()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["conn"].ConnectionString;
-            string query = "INSERT INTO ApplicationWebsites (ApplicationWebsite) VALUES (@WebsiteName)";
+            string query = "INSERT INTO ApplicationWebsites (ApplicationWebsite) VALUES (@WebsiteName);";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.Add("@WebsiteName", SqlDbType.NVarChar).Value = txtWebsite.Text;
-                    cmd.ExecuteNonQuery();
+                    if (txtWebsite.Text.Length > 20)
+                    {
+                        MessageBox.Show("Website name is too long! Please enter a shorter name.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtWebsite.Text = "";
+                        return;
+                    }
+                    else
+                    {
+                        try
+                        {
+                            cmd.Parameters.Add("@WebsiteName", SqlDbType.NVarChar).Value = txtWebsite.Text;
+                            cmd.ExecuteNonQuery();
+                        }
+                        catch (Exception e)
+                        {
+                            MessageBox.Show(e.ToString());
+                        }
+                    }
                 }
             }
 

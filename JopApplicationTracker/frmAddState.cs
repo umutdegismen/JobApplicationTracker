@@ -42,8 +42,24 @@ namespace JopApplicationTracker
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.Add("@stateName", SqlDbType.NVarChar).Value = txtStates.Text;
-                    cmd.ExecuteNonQuery();
+                    if (txtStates.Text.Length > 20)
+                    {
+                        MessageBox.Show("Website name is too long! Please enter a shorter name.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtStates.Text = "";
+                        return;
+                    }
+                    else
+                    {
+                        try
+                        {
+                            cmd.Parameters.Add("@stateName", SqlDbType.NVarChar).Value = txtStates.Text;
+                            cmd.ExecuteNonQuery();
+                        }
+                        catch (Exception e)
+                        {
+                            MessageBox.Show(e.ToString());
+                        }
+                    }
                 }
             }
 
