@@ -68,6 +68,12 @@
     <Compile Include="frmAddApplcation.Designer.cs">
       <DependentUpon>frmAddApplcation.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddJobType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddJobType.Designer.cs">
+      <DependentUpon>frmAddJobType.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddState.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +85,12 @@
     </Compile>
     <Compile Include="frmAddStateList.Designer.cs">
       <DependentUpon>frmAddStateList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddStatus.Designer.cs">
+      <DependentUpon>frmAddStatus.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAddWebsite.cs">
       <SubType>Form</SubType>
@@ -97,11 +109,17 @@
     <EmbeddedResource Include="frmAddApplcation.resx">
       <DependentUpon>frmAddApplcation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAddJobType.resx">
+      <DependentUpon>frmAddJobType.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddState.resx">
       <DependentUpon>frmAddState.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddStateList.resx">
       <DependentUpon>frmAddStateList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddStatus.resx">
+      <DependentUpon>frmAddStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddWebsite.resx">
       <DependentUpon>frmAddWebsite.cs</DependentUpon>

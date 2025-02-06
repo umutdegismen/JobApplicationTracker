@@ -19,3 +19,5 @@ C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\obj\Debu
 C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\bin\Debug\System.Configuration.ConfigurationManager.dll
 C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\bin\Debug\System.Configuration.ConfigurationManager.xml
 C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\obj\Debug\JopApplicationTracker.frmAddStateList.resources
+C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\obj\Debug\JopApplicationTracker.frmAddJobType.resources
+C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\obj\Debug\JopApplicationTracker.frmAddStatus.resources

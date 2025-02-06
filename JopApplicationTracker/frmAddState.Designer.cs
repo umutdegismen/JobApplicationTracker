@@ -48,12 +48,12 @@
             // 
             this.txtStates.Location = new System.Drawing.Point(12, 72);
             this.txtStates.Name = "txtStates";
-            this.txtStates.Size = new System.Drawing.Size(361, 29);
+            this.txtStates.Size = new System.Drawing.Size(422, 29);
             this.txtStates.TabIndex = 4;
             // 
             // btnAddStateList
             // 
-            this.btnAddStateList.Location = new System.Drawing.Point(243, 117);
+            this.btnAddStateList.Location = new System.Drawing.Point(304, 118);
             this.btnAddStateList.Name = "btnAddStateList";
             this.btnAddStateList.Size = new System.Drawing.Size(130, 43);
             this.btnAddStateList.TabIndex = 3;
@@ -74,7 +74,7 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(243, 167);
+            this.btnCancel.Location = new System.Drawing.Point(304, 167);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(130, 43);
             this.btnCancel.TabIndex = 7;
@@ -87,7 +87,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(385, 217);
+            this.ClientSize = new System.Drawing.Size(446, 217);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnStateList);
             this.Controls.Add(this.label1);

@@ -50,6 +50,7 @@
             this.btnWebsite = new System.Windows.Forms.Button();
             this.btnAddJobType = new System.Windows.Forms.Button();
             this.btnStatus = new System.Windows.Forms.Button();
+            this.seeTheStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvJobs)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -147,6 +148,7 @@
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.Size = new System.Drawing.Size(374, 40);
             this.newToolStripMenuItem.Text = "New Status..";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem1
             // 
@@ -166,7 +168,8 @@
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statesToolStripMenuItem,
             this.applicationWebsitesToolStripMenuItem,
-            this.workEnvironmentsToolStripMenuItem});
+            this.workEnvironmentsToolStripMenuItem,
+            this.seeTheStatusToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(75, 34);
             this.viewToolStripMenuItem.Text = "View";
@@ -174,20 +177,20 @@
             // statesToolStripMenuItem
             // 
             this.statesToolStripMenuItem.Name = "statesToolStripMenuItem";
-            this.statesToolStripMenuItem.Size = new System.Drawing.Size(325, 40);
-            this.statesToolStripMenuItem.Text = "States";
+            this.statesToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.statesToolStripMenuItem.Text = "State List";
             // 
             // applicationWebsitesToolStripMenuItem
             // 
             this.applicationWebsitesToolStripMenuItem.Name = "applicationWebsitesToolStripMenuItem";
-            this.applicationWebsitesToolStripMenuItem.Size = new System.Drawing.Size(325, 40);
-            this.applicationWebsitesToolStripMenuItem.Text = "Application Websites";
+            this.applicationWebsitesToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.applicationWebsitesToolStripMenuItem.Text = "Website List";
             // 
             // workEnvironmentsToolStripMenuItem
             // 
             this.workEnvironmentsToolStripMenuItem.Name = "workEnvironmentsToolStripMenuItem";
-            this.workEnvironmentsToolStripMenuItem.Size = new System.Drawing.Size(325, 40);
-            this.workEnvironmentsToolStripMenuItem.Text = "WorkEnvironments";
+            this.workEnvironmentsToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.workEnvironmentsToolStripMenuItem.Text = "Job Types List";
             // 
             // aboutToolStripMenuItem
             // 
@@ -246,6 +249,13 @@
             this.btnStatus.TabIndex = 5;
             this.btnStatus.Text = "Add Status";
             this.btnStatus.UseVisualStyleBackColor = true;
+            this.btnStatus.Click += new System.EventHandler(this.btnStatus_Click);
+            // 
+            // seeTheStatusToolStripMenuItem
+            // 
+            this.seeTheStatusToolStripMenuItem.Name = "seeTheStatusToolStripMenuItem";
+            this.seeTheStatusToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.seeTheStatusToolStripMenuItem.Text = "Status List";
             // 
             // frmMain
             // 
@@ -297,5 +307,6 @@
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.Button btnAddJobType;
         private System.Windows.Forms.Button btnStatus;
+        private System.Windows.Forms.ToolStripMenuItem seeTheStatusToolStripMenuItem;
     }
 }

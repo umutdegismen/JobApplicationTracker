@@ -21,7 +21,7 @@ namespace JopApplicationTracker
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if(txtJobType.Text == "")
+            if (txtJobType.Text == "")
             {
                 MessageBox.Show("Please enter a job type!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -35,21 +35,37 @@ namespace JopApplicationTracker
         {
             string connectionString = ConfigurationManager.ConnectionStrings["conn"].ConnectionString;
 
-            string query = "INSERT INTO JobTypes (JobType) VALUES (@JobType)";
+            string query = "INSERT INTO JobType (JobType) VALUES (@JobType);";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.Add("@JobType", SqlDbType.NVarChar).Value = txtJobType.Text;
-                    cmd.ExecuteNonQuery();
+                    if (txtJobType.Text.Length > 20)
+                    {
+                        MessageBox.Show("Website name is too long! Please enter a shorter name.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtJobType.Text = "";
+                        return;
+                    }
+                    else
+                    {
+                        try
+                        {
+                            cmd.Parameters.Add("@JobType", SqlDbType.NVarChar).Value = txtJobType.Text;
+                            cmd.ExecuteNonQuery();
+                        }
+                        catch (Exception e)
+                        {
+                            MessageBox.Show(e.ToString());
+                        }
+                    }
                 }
             }
 
             // UI updates after database operation
             MessageBox.Show($"{txtJobType.Text} is added successfully!");
-            txtJobType.Text = "";  
+            txtJobType.Text = "";
             this.Close();
         }
     }
