@@ -28,21 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnCancelUpdate = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtUpdateStates = new System.Windows.Forms.TextBox();
             this.btnUpdateState = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnCancel
+            // btnCancelUpdate
             // 
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(12, 115);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(130, 43);
-            this.btnCancel.TabIndex = 12;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancelUpdate.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelUpdate.Location = new System.Drawing.Point(12, 115);
+            this.btnCancelUpdate.Name = "btnCancelUpdate";
+            this.btnCancelUpdate.Size = new System.Drawing.Size(130, 43);
+            this.btnCancelUpdate.TabIndex = 12;
+            this.btnCancelUpdate.Text = "Cancel";
+            this.btnCancelUpdate.UseVisualStyleBackColor = true;
+            this.btnCancelUpdate.Click += new System.EventHandler(this.btnCancelUpdate_Click);
             // 
             // label1
             // 
@@ -75,9 +76,8 @@
             this.AcceptButton = this.btnUpdateState;
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(446, 180);
-            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnCancelUpdate);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtUpdateStates);
             this.Controls.Add(this.btnUpdateState);
@@ -94,7 +94,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnCancelUpdate;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtUpdateStates;
         private System.Windows.Forms.Button btnUpdateState;

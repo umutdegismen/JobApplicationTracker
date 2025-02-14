@@ -19,26 +19,48 @@ namespace JopApplicationTracker
 
 
         JobApplicationDBEntities db = new JobApplicationDBEntities();
-       
-        
+
 
         private void frmListStates_Load(object sender, EventArgs e)
         {
-           listStates(dgvStates,db);
+            listStates(dgvStates, db);
         }
 
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(dgvStates.SelectedRows[0].Cells[0].Value);
-            
+
             frmUpdateState f = new frmUpdateState(id);
             f.Show();
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            try
+            {
+                int idToDelete = Convert.ToInt32(dgvStates.SelectedRows[0].Cells[0].Value);
+                State stateToDelete = db.States.Find(idToDelete);
+                string stateToDeleteName = stateToDelete.State1;
 
+                DialogResult ds = MessageBox.Show("Do you want to delete '" + stateToDeleteName + "'", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (ds == DialogResult.Yes)
+                {
+                    // save changes to DataBase
+                    db.States.Remove(stateToDelete);
+                    db.SaveChanges();
+
+                    MessageBox.Show("'" + stateToDeleteName + "' is succesfully deleted!");
+                    
+                    // refresh the DataGridView
+                    dgvStates.Columns.Clear();
+                    listStates(dgvStates, db);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
 

@@ -39,7 +39,7 @@ namespace JopApplicationTracker
 
             if (stateBeforeUpdate == updatedState)
             {
-                DialogResult questionResult = MessageBox.Show("There is no any changes between old and new state name!", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                DialogResult questionResult = MessageBox.Show("There is no any changes between old and new state name. \nDo you want to continue ?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
                 if (questionResult == DialogResult.OK)
                 {
@@ -74,10 +74,15 @@ namespace JopApplicationTracker
         /// </summary>
         private void dgvRefresh()
         {
+           
             frmListStates f = (frmListStates)System.Windows.Forms.Application.OpenForms["frmListStates"];
             f.dgvStates.Columns.Clear();
             frmListStates.listStates(f.dgvStates, db);
         }
 
+        private void btnCancelUpdate_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

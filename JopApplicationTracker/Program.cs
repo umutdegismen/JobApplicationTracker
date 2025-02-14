@@ -20,7 +20,7 @@ namespace JopApplicationTracker
             if (Environment.OSVersion.Version.Major >= 6) SetProcessDPIAware();
             System.Windows.Forms.Application.EnableVisualStyles();
             System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
-            System.Windows.Forms.Application.Run(new frmListStates());
+            System.Windows.Forms.Application.Run(new frmMain());
         }
 
 
