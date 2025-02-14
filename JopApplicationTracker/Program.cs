@@ -14,10 +14,13 @@ namespace JopApplicationTracker
         [STAThread]
         static void Main()
         {
+            // The database table name is 'Applications' that's why the table class is named 'Application'.
+            // Since we are using 'Application' class name, we need to add 'using System;' to avoid conflict with 'System.Application' namespace.
+
             if (Environment.OSVersion.Version.Major >= 6) SetProcessDPIAware();
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMain());
+            System.Windows.Forms.Application.EnableVisualStyles();
+            System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
+            System.Windows.Forms.Application.Run(new frmListStates());
         }
 
 

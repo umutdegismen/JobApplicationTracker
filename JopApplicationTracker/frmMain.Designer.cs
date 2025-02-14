@@ -44,13 +44,17 @@
             this.statesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.applicationWebsitesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.workEnvironmentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.seeTheStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAddState = new System.Windows.Forms.Button();
             this.btnWebsite = new System.Windows.Forms.Button();
             this.btnAddJobType = new System.Windows.Forms.Button();
             this.btnStatus = new System.Windows.Forms.Button();
-            this.seeTheStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnViewStatus = new System.Windows.Forms.Button();
+            this.btnViewWebsites = new System.Windows.Forms.Button();
+            this.btnViewStates = new System.Windows.Forms.Button();
+            this.btnViewJobTypes = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvJobs)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -112,7 +116,7 @@
             this.newEnvironmentToolStripMenuItem,
             this.newToolStripMenuItem});
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(169, 40);
             this.exitToolStripMenuItem.Text = "Add";
             // 
             // newJobToolStripMenuItem
@@ -153,7 +157,7 @@
             // exitToolStripMenuItem1
             // 
             this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(315, 40);
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(169, 40);
             this.exitToolStripMenuItem1.Text = "Exit";
             this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
             // 
@@ -177,20 +181,27 @@
             // statesToolStripMenuItem
             // 
             this.statesToolStripMenuItem.Name = "statesToolStripMenuItem";
-            this.statesToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.statesToolStripMenuItem.Size = new System.Drawing.Size(258, 40);
             this.statesToolStripMenuItem.Text = "State List";
+            this.statesToolStripMenuItem.Click += new System.EventHandler(this.statesToolStripMenuItem_Click);
             // 
             // applicationWebsitesToolStripMenuItem
             // 
             this.applicationWebsitesToolStripMenuItem.Name = "applicationWebsitesToolStripMenuItem";
-            this.applicationWebsitesToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.applicationWebsitesToolStripMenuItem.Size = new System.Drawing.Size(258, 40);
             this.applicationWebsitesToolStripMenuItem.Text = "Website List";
             // 
             // workEnvironmentsToolStripMenuItem
             // 
             this.workEnvironmentsToolStripMenuItem.Name = "workEnvironmentsToolStripMenuItem";
-            this.workEnvironmentsToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.workEnvironmentsToolStripMenuItem.Size = new System.Drawing.Size(258, 40);
             this.workEnvironmentsToolStripMenuItem.Text = "Job Types List";
+            // 
+            // seeTheStatusToolStripMenuItem
+            // 
+            this.seeTheStatusToolStripMenuItem.Name = "seeTheStatusToolStripMenuItem";
+            this.seeTheStatusToolStripMenuItem.Size = new System.Drawing.Size(258, 40);
+            this.seeTheStatusToolStripMenuItem.Text = "Status List";
             // 
             // aboutToolStripMenuItem
             // 
@@ -251,17 +262,59 @@
             this.btnStatus.UseVisualStyleBackColor = true;
             this.btnStatus.Click += new System.EventHandler(this.btnStatus_Click);
             // 
-            // seeTheStatusToolStripMenuItem
+            // btnViewStatus
             // 
-            this.seeTheStatusToolStripMenuItem.Name = "seeTheStatusToolStripMenuItem";
-            this.seeTheStatusToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
-            this.seeTheStatusToolStripMenuItem.Text = "Status List";
+            this.btnViewStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnViewStatus.Location = new System.Drawing.Point(189, 1103);
+            this.btnViewStatus.Name = "btnViewStatus";
+            this.btnViewStatus.Size = new System.Drawing.Size(171, 75);
+            this.btnViewStatus.TabIndex = 10;
+            this.btnViewStatus.Text = "List\r\nStatus";
+            this.btnViewStatus.UseVisualStyleBackColor = true;
+            this.btnViewStatus.Click += new System.EventHandler(this.btnViewStatus_Click);
+            // 
+            // btnViewWebsites
+            // 
+            this.btnViewWebsites.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnViewWebsites.Location = new System.Drawing.Point(543, 1103);
+            this.btnViewWebsites.Name = "btnViewWebsites";
+            this.btnViewWebsites.Size = new System.Drawing.Size(171, 75);
+            this.btnViewWebsites.TabIndex = 11;
+            this.btnViewWebsites.Text = "List\r\nWebsites";
+            this.btnViewWebsites.UseVisualStyleBackColor = true;
+            this.btnViewWebsites.Click += new System.EventHandler(this.btnViewWebsites_Click);
+            // 
+            // btnViewStates
+            // 
+            this.btnViewStates.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnViewStates.Location = new System.Drawing.Point(366, 1103);
+            this.btnViewStates.Name = "btnViewStates";
+            this.btnViewStates.Size = new System.Drawing.Size(171, 75);
+            this.btnViewStates.TabIndex = 12;
+            this.btnViewStates.Text = "List\r\nStates";
+            this.btnViewStates.UseVisualStyleBackColor = true;
+            this.btnViewStates.Click += new System.EventHandler(this.btnViewStates_Click);
+            // 
+            // btnViewJobTypes
+            // 
+            this.btnViewJobTypes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnViewJobTypes.Location = new System.Drawing.Point(12, 1103);
+            this.btnViewJobTypes.Name = "btnViewJobTypes";
+            this.btnViewJobTypes.Size = new System.Drawing.Size(171, 75);
+            this.btnViewJobTypes.TabIndex = 13;
+            this.btnViewJobTypes.Text = "List \r\nJob Types";
+            this.btnViewJobTypes.UseVisualStyleBackColor = true;
+            this.btnViewJobTypes.Click += new System.EventHandler(this.btnViewJobTypes_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2151, 1202);
+            this.Controls.Add(this.btnViewJobTypes);
+            this.Controls.Add(this.btnViewStates);
+            this.Controls.Add(this.btnViewWebsites);
+            this.Controls.Add(this.btnViewStatus);
             this.Controls.Add(this.btnAddJobType);
             this.Controls.Add(this.btnStatus);
             this.Controls.Add(this.btnWebsite);
@@ -308,5 +361,9 @@
         private System.Windows.Forms.Button btnAddJobType;
         private System.Windows.Forms.Button btnStatus;
         private System.Windows.Forms.ToolStripMenuItem seeTheStatusToolStripMenuItem;
+        private System.Windows.Forms.Button btnViewStatus;
+        private System.Windows.Forms.Button btnViewWebsites;
+        private System.Windows.Forms.Button btnViewStates;
+        private System.Windows.Forms.Button btnViewJobTypes;
     }
 }
