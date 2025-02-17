@@ -10,11 +10,23 @@ using System.Windows.Forms;
 
 namespace JopApplicationTracker
 {
-    public partial class frmListJopTypes : Form
+    public partial class frmUpdateJobType : Form
     {
-        public frmListJopTypes()
+
+        int selectedId;
+
+        public frmUpdateJobType(int sentId)
         {
             InitializeComponent();
+
+            selectedId = sentId;
+        }
+
+        
+
+        private void frmUpdateJobType_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

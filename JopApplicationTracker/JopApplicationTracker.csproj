@@ -108,11 +108,11 @@
     <Compile Include="frmAddWebsite.Designer.cs">
       <DependentUpon>frmAddWebsite.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmListJopTypes.cs">
+    <Compile Include="frmListJobTypes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmListJopTypes.Designer.cs">
-      <DependentUpon>frmListJopTypes.cs</DependentUpon>
+    <Compile Include="frmListJobTypes.Designer.cs">
+      <DependentUpon>frmListJobTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="frmListStates.cs">
       <SubType>Form</SubType>
@@ -188,8 +188,17 @@
     <EmbeddedResource Include="frmAddWebsite.resx">
       <DependentUpon>frmAddWebsite.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmListJobTypes.resx">
+      <DependentUpon>frmListJobTypes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmListStates.resx">
       <DependentUpon>frmListStates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListStatus.resx">
+      <DependentUpon>frmListStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListWebsites.resx">
+      <DependentUpon>frmListWebsites.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>

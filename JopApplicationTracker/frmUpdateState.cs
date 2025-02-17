@@ -12,23 +12,23 @@ namespace JopApplicationTracker
 {
     public partial class frmUpdateState : Form
     {
-        int id;
+        int selectecId;
         State stateToUpdate;
         string stateBeforeUpdate;
         string updatedState;
         
 
-        public frmUpdateState(int id)
+        public frmUpdateState(int sentId)
         {
             InitializeComponent();
-            this.id = id; // id is coming from DataGridView row selection in frmListStates
+            selectecId = sentId; // id is coming from DataGridView row selection in frmListStates
         }
 
         JobApplicationDBEntities db = new JobApplicationDBEntities();
 
         private void frmUpdateState_Load(object sender, EventArgs e)
         {
-            stateToUpdate = db.States.Find(id);
+            stateToUpdate = db.States.Find(selectecId);
             txtUpdateStates.Text = stateToUpdate.State1;
             stateBeforeUpdate = txtUpdateStates.Text;
         }

@@ -190,6 +190,22 @@ namespace JopApplicationTracker
             openListWebSitesForm();
         }
 
+        private void applicationWebsitesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openListWebSitesForm();
+        }
+
+        private void workEnvironmentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openListJobTypesForm();
+        }
+
+        private void seeTheStatusToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openListStatusForm();
+        }
+
+
 
         // form openning methods
 
@@ -214,7 +230,6 @@ namespace JopApplicationTracker
             frmAddState f = new frmAddState();
             f.ShowDialog();
         }
-
         private void openAddStatusForm()
         {
             frmAddStatus f = new frmAddStatus();
@@ -230,7 +245,7 @@ namespace JopApplicationTracker
 
         private void openListJobTypesForm()
         {
-            frmListJopTypes f = new frmListJopTypes();
+            frmListJobTypes f = new frmListJobTypes();
             f.ShowDialog();
         }
 
@@ -245,6 +260,7 @@ namespace JopApplicationTracker
             frmListWebsites f = new frmListWebsites();
             f.ShowDialog();
         }
+
 
     }
 }

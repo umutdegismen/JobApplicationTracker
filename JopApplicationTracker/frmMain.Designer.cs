@@ -39,7 +39,6 @@
             this.newEnvironmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.applicationWebsitesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,7 +88,6 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(28, 28);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.editToolStripMenuItem,
             this.viewToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -161,12 +159,6 @@
             this.exitToolStripMenuItem1.Text = "Exit";
             this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
             // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(66, 34);
-            this.editToolStripMenuItem.Text = "Edit";
-            // 
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -181,27 +173,30 @@
             // statesToolStripMenuItem
             // 
             this.statesToolStripMenuItem.Name = "statesToolStripMenuItem";
-            this.statesToolStripMenuItem.Size = new System.Drawing.Size(258, 40);
-            this.statesToolStripMenuItem.Text = "State List";
+            this.statesToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.statesToolStripMenuItem.Text = "States";
             this.statesToolStripMenuItem.Click += new System.EventHandler(this.statesToolStripMenuItem_Click);
             // 
             // applicationWebsitesToolStripMenuItem
             // 
             this.applicationWebsitesToolStripMenuItem.Name = "applicationWebsitesToolStripMenuItem";
-            this.applicationWebsitesToolStripMenuItem.Size = new System.Drawing.Size(258, 40);
-            this.applicationWebsitesToolStripMenuItem.Text = "Website List";
+            this.applicationWebsitesToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.applicationWebsitesToolStripMenuItem.Text = "Websites";
+            this.applicationWebsitesToolStripMenuItem.Click += new System.EventHandler(this.applicationWebsitesToolStripMenuItem_Click);
             // 
             // workEnvironmentsToolStripMenuItem
             // 
             this.workEnvironmentsToolStripMenuItem.Name = "workEnvironmentsToolStripMenuItem";
-            this.workEnvironmentsToolStripMenuItem.Size = new System.Drawing.Size(258, 40);
-            this.workEnvironmentsToolStripMenuItem.Text = "Job Types List";
+            this.workEnvironmentsToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.workEnvironmentsToolStripMenuItem.Text = "Job Types";
+            this.workEnvironmentsToolStripMenuItem.Click += new System.EventHandler(this.workEnvironmentsToolStripMenuItem_Click);
             // 
             // seeTheStatusToolStripMenuItem
             // 
             this.seeTheStatusToolStripMenuItem.Name = "seeTheStatusToolStripMenuItem";
-            this.seeTheStatusToolStripMenuItem.Size = new System.Drawing.Size(258, 40);
-            this.seeTheStatusToolStripMenuItem.Text = "Status List";
+            this.seeTheStatusToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.seeTheStatusToolStripMenuItem.Text = "Status";
+            this.seeTheStatusToolStripMenuItem.Click += new System.EventHandler(this.seeTheStatusToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -347,7 +342,6 @@
         private System.Windows.Forms.ToolStripMenuItem newJobToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newStateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newWebsiteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;

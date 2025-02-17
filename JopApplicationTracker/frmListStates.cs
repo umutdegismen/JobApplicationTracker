@@ -29,9 +29,9 @@ namespace JopApplicationTracker
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(dgvStates.SelectedRows[0].Cells[0].Value);
+            int idToUpdate = Convert.ToInt32(dgvStates.SelectedRows[0].Cells[0].Value);
 
-            frmUpdateState f = new frmUpdateState(id);
+            frmUpdateState f = new frmUpdateState(idToUpdate);
             f.Show();
         }
 

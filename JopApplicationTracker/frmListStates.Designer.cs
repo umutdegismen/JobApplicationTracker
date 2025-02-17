@@ -43,9 +43,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(25, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 25);
+            this.label1.Size = new System.Drawing.Size(130, 25);
             this.label1.TabIndex = 1;
-            this.label1.Text = "States:";
+            this.label1.Text = "List of States:";
             // 
             // dgvStates
             // 
@@ -66,19 +66,19 @@
             this.editToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(271, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(147, 76);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(270, 36);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(146, 36);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(270, 36);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(146, 36);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
