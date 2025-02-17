@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
@@ -19,6 +20,8 @@ namespace JopApplicationTracker
             InitializeComponent();
         }
 
+        JobApplicationDBEntities db = new JobApplicationDBEntities();
+
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             saveApplication();
@@ -28,32 +31,42 @@ namespace JopApplicationTracker
         {
 
         }
-        // 1. query
-        // 2. column name
-        // 
+
+
         private void frmAddApplication_Load(object sender, EventArgs e)
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["conn"].ConnectionString;
+            fillComboBoxes();
+        }
 
-            string loadStateQuery = "SELECT * FROM States";
-            string loadWorkEnvironmentQuery = "SELECT * FROM WorkEnvironments";
-            string loadWebsiteQuery = "SELECT * FROM ApplicationWebsites";
-            string loadStatusQuery = "SELECT * FROM Status";
+        private void fillComboBoxes()
+        {
+            var stateQuery = from c in db.States select c;
+            cmbState.DataSource = stateQuery.ToList();
+            cmbState.DisplayMember = "State1";
+            cmbState.ValueMember = "Id";
 
-            using (SqlConnection cnn = new SqlConnection(connectionString))
+            var jobTypeQuery = from x in db.JobTypes select x;
+            cmbWorkEnv.DataSource = jobTypeQuery.ToList();
+            cmbWorkEnv.DisplayMember = "JobType1";
+            cmbWorkEnv.ValueMember = "Id";
+
+            var websiteQuery = from x in db.ApplicationWebsites select x;
+            cmbApplicationWebSite.DataSource = websiteQuery.ToList();
+            cmbApplicationWebSite.DisplayMember = "ApplicationWebsite1";
+            cmbApplicationWebSite.ValueMember = "Id";
+
+            var statusQuery = from x in db.ApplicationStatus select x;
+            cmbStatus.DataSource = statusQuery.ToList();
+            cmbStatus.DisplayMember = "JobStatus";
+            cmbStatus.ValueMember = "id";
+
+            // set the default selected item 
+            foreach (Control c in this.Controls)
             {
-                cnn.Open();
-                
-                using (SqlDataAdapter adp = new SqlDataAdapter(loadStateQuery, connectionString))
+                if (c is ComboBox comboBox)
                 {
-                    DataTable dt = new DataTable();
-                    adp.Fill(dt);
-
-                    foreach (DataRow item in dt.Rows)
-                    {
-                        cmbState.Items.Add(item["State"].ToString());
-                    }
-
+                    comboBox.SelectedIndex = -1;
+                    comboBox.Text = "Please select..";
                 }
             }
         }

@@ -1,0 +1,88 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace JopApplicationTracker
+{
+    public partial class frmUpdateState : Form
+    {
+        int selectecId;
+        State stateToUpdate;
+        string stateBeforeUpdate;
+        string updatedState;
+        
+
+        public frmUpdateState(int sentId)
+        {
+            InitializeComponent();
+            selectecId = sentId; // id is coming from DataGridView row selection in frmListStates
+        }
+
+        JobApplicationDBEntities db = new JobApplicationDBEntities();
+
+        private void frmUpdateState_Load(object sender, EventArgs e)
+        {
+            stateToUpdate = db.States.Find(selectecId);
+            txtUpdateStates.Text = stateToUpdate.State1;
+            stateBeforeUpdate = txtUpdateStates.Text;
+        }
+
+        private void btnUpdateState_Click(object sender, EventArgs e)
+        {
+            updatedState = txtUpdateStates.Text;
+
+            if (stateBeforeUpdate == updatedState)
+            {
+                DialogResult questionResult = MessageBox.Show("There is no any changes between old and new state name. \nDo you want to continue ?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+                if (questionResult == DialogResult.OK)
+                {
+                    saveChanges();
+                }
+            }
+            else
+            {
+                saveChanges();
+            }
+        }
+
+        /// <summary>
+        /// This method saves changes to DataBase.
+        /// 
+        /// </summary>
+        private void saveChanges()
+        {
+            // save changes to DB
+            stateToUpdate.State1 = updatedState;
+            db.SaveChanges();
+
+            MessageBox.Show("'" + stateBeforeUpdate + "' is succesfully updated with '" + updatedState + "'");
+            this.Close();
+            
+            dgvRefresh();
+        }
+
+        /// <summary>
+        /// This method refreshes the DataGridView.
+        /// 
+        /// </summary>
+        private void dgvRefresh()
+        {
+           
+            frmListStates f = (frmListStates)System.Windows.Forms.Application.OpenForms["frmListStates"];
+            f.dgvStates.Columns.Clear();
+            frmListStates.listStates(f.dgvStates, db);
+        }
+
+        private void btnCancelUpdate_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
+}

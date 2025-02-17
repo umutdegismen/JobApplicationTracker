@@ -154,9 +154,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(67, 335);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(184, 30);
+            this.label4.Size = new System.Drawing.Size(94, 30);
             this.label4.TabIndex = 29;
-            this.label4.Text = "Work Environment";
+            this.label4.Text = "Job Type";
             // 
             // label3
             // 
