@@ -26,7 +26,7 @@ namespace JopApplicationTracker
 
         private void frmUpdateJobType_Load(object sender, EventArgs e)
         {
-
+            // continue 
         }
     }
 }
