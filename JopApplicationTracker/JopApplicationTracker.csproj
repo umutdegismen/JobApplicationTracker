@@ -138,6 +138,12 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmUpdateJobType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUpdateJobType.Designer.cs">
+      <DependentUpon>frmUpdateJobType.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmUpdateState.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUpdateJobType.resx">
+      <DependentUpon>frmUpdateJobType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUpdateState.resx">
       <DependentUpon>frmUpdateState.cs</DependentUpon>
