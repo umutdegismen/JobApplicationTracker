@@ -15,13 +15,15 @@ namespace JopApplicationTracker
         int selectecId;
         State stateToUpdate;
         string stateBeforeUpdate;
-        string updatedState;
+        string newState;
         
 
         public frmUpdateState(int sentId)
         {
             InitializeComponent();
-            selectecId = sentId; // id is coming from DataGridView row selection in frmListStates
+
+            // id is coming from DataGridView row selection in frmListStates
+            selectecId = sentId;
         }
 
         JobApplicationDBEntities db = new JobApplicationDBEntities();
@@ -35,9 +37,9 @@ namespace JopApplicationTracker
 
         private void btnUpdateState_Click(object sender, EventArgs e)
         {
-            updatedState = txtUpdateStates.Text;
+            newState = txtUpdateStates.Text;
 
-            if (stateBeforeUpdate == updatedState)
+            if (stateBeforeUpdate == newState)
             {
                 DialogResult questionResult = MessageBox.Show("There is no any changes between old and new state name. \nDo you want to continue ?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
@@ -59,10 +61,10 @@ namespace JopApplicationTracker
         private void saveChanges()
         {
             // save changes to DB
-            stateToUpdate.State1 = updatedState;
+            stateToUpdate.State1 = newState;
             db.SaveChanges();
 
-            MessageBox.Show("'" + stateBeforeUpdate + "' is succesfully updated with '" + updatedState + "'");
+            MessageBox.Show("'" + stateBeforeUpdate + "' is succesfully updated with '" + newState + "'");
             this.Close();
             
             dgvRefresh();

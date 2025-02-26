@@ -30,8 +30,8 @@
         {
             this.btnCancelUpdate = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtUpdateStates = new System.Windows.Forms.TextBox();
-            this.btnUpdateState = new System.Windows.Forms.Button();
+            this.txtUpdateJobType = new System.Windows.Forms.TextBox();
+            this.btnUpdateJobType = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCancelUpdate
@@ -53,34 +53,38 @@
             this.label1.TabIndex = 15;
             this.label1.Text = "Enter updated state:";
             // 
-            // txtUpdateStates
+            // txtUpdateJobType
             // 
-            this.txtUpdateStates.Location = new System.Drawing.Point(12, 63);
-            this.txtUpdateStates.Name = "txtUpdateStates";
-            this.txtUpdateStates.Size = new System.Drawing.Size(514, 29);
-            this.txtUpdateStates.TabIndex = 14;
+            this.txtUpdateJobType.Location = new System.Drawing.Point(12, 63);
+            this.txtUpdateJobType.Name = "txtUpdateJobType";
+            this.txtUpdateJobType.Size = new System.Drawing.Size(514, 29);
+            this.txtUpdateJobType.TabIndex = 14;
             // 
-            // btnUpdateState
+            // btnUpdateJobType
             // 
-            this.btnUpdateState.Location = new System.Drawing.Point(370, 113);
-            this.btnUpdateState.Name = "btnUpdateState";
-            this.btnUpdateState.Size = new System.Drawing.Size(156, 43);
-            this.btnUpdateState.TabIndex = 13;
-            this.btnUpdateState.Text = "Update";
-            this.btnUpdateState.UseVisualStyleBackColor = true;
+            this.btnUpdateJobType.Location = new System.Drawing.Point(370, 113);
+            this.btnUpdateJobType.Name = "btnUpdateJobType";
+            this.btnUpdateJobType.Size = new System.Drawing.Size(156, 43);
+            this.btnUpdateJobType.TabIndex = 13;
+            this.btnUpdateJobType.Text = "Update";
+            this.btnUpdateJobType.UseVisualStyleBackColor = true;
+            this.btnUpdateJobType.Click += new System.EventHandler(this.btnUpdateJobType_Click);
             // 
             // frmUpdateJobType
             // 
-            this.AcceptButton = this.btnUpdateState;
+            this.AcceptButton = this.btnUpdateJobType;
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelUpdate;
             this.ClientSize = new System.Drawing.Size(538, 180);
             this.Controls.Add(this.btnCancelUpdate);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtUpdateStates);
-            this.Controls.Add(this.btnUpdateState);
+            this.Controls.Add(this.txtUpdateJobType);
+            this.Controls.Add(this.btnUpdateJobType);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmUpdateJobType";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Job Type Update Form";
             this.Load += new System.EventHandler(this.frmUpdateJobType_Load);
             this.ResumeLayout(false);
@@ -92,7 +96,7 @@
 
         private System.Windows.Forms.Button btnCancelUpdate;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtUpdateStates;
-        private System.Windows.Forms.Button btnUpdateState;
+        private System.Windows.Forms.TextBox txtUpdateJobType;
+        private System.Windows.Forms.Button btnUpdateJobType;
     }
 }
