@@ -19,13 +19,14 @@ namespace JopApplicationTracker
 
 
         JobApplicationDBEntities db = new JobApplicationDBEntities();
+        int idToDeleteOrUpdate;
 
         private void frmListJopTypes_Load(object sender, EventArgs e)
         {
             listJobTypes(dgvJobTypes, db);
         }
 
-        private static void listJobTypes(DataGridView dgv, JobApplicationDBEntities db)
+        public static void listJobTypes(DataGridView dgv, JobApplicationDBEntities db)
         {
             var query = from x in db.JobTypes
                         select new
@@ -48,9 +49,33 @@ namespace JopApplicationTracker
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int idToUpdate = Convert.ToInt32(dgvJobTypes.SelectedRows[0].Cells[0]);
-            frmUpdateJobType f = new frmUpdateJobType(idToUpdate);
+            idToDeleteOrUpdate = Convert.ToInt32(dgvJobTypes.SelectedRows[0].Cells[0].Value);
+            frmUpdateJobType f = new frmUpdateJobType(idToDeleteOrUpdate);
             f.Show();
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            idToDeleteOrUpdate = Convert.ToInt32(dgvJobTypes.SelectedRows[0].Cells[0].Value);
+
+            JobType jobTypeToDelete = db.JobTypes.Find(idToDeleteOrUpdate);
+            string jobType = jobTypeToDelete.JobType1;
+
+            DialogResult ds = MessageBox.Show("Do you want to delete '" + jobType + "'", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if(ds == DialogResult.Yes)
+            {
+                // delete the selected row and save changes to DataBase
+                db.JobTypes.Remove(jobTypeToDelete);
+                db.SaveChanges();
+
+                MessageBox.Show("'" + jobType + "' is succesfully deleted!");
+
+                // refresh the DataGridView
+                CommonMethods.dgvClear(dgvJobTypes);
+                listJobTypes(dgvJobTypes, db);
+            }
+
         }
     }
 }

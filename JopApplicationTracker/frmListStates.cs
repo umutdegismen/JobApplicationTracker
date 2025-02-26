@@ -19,7 +19,7 @@ namespace JopApplicationTracker
 
 
         JobApplicationDBEntities db = new JobApplicationDBEntities();
-
+        int idToDeleteOrUpdate;
 
         private void frmListStates_Load(object sender, EventArgs e)
         {
@@ -29,9 +29,9 @@ namespace JopApplicationTracker
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int idToUpdate = Convert.ToInt32(dgvStates.SelectedRows[0].Cells[0].Value);
+            idToDeleteOrUpdate = Convert.ToInt32(dgvStates.SelectedRows[0].Cells[0].Value);
 
-            frmUpdateState f = new frmUpdateState(idToUpdate);
+            frmUpdateState f = new frmUpdateState(idToDeleteOrUpdate);
             f.Show();
         }
 
@@ -39,14 +39,14 @@ namespace JopApplicationTracker
         {
             try
             {
-                int idToDelete = Convert.ToInt32(dgvStates.SelectedRows[0].Cells[0].Value);
-                State stateToDelete = db.States.Find(idToDelete);
+                idToDeleteOrUpdate = Convert.ToInt32(dgvStates.SelectedRows[0].Cells[0].Value);
+                State stateToDelete = db.States.Find(idToDeleteOrUpdate);
                 string stateToDeleteName = stateToDelete.State1;
 
                 DialogResult ds = MessageBox.Show("Do you want to delete '" + stateToDeleteName + "'", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (ds == DialogResult.Yes)
                 {
-                    // save changes to DataBase
+                    // delete the selected row and save changes to DataBase
                     db.States.Remove(stateToDelete);
                     db.SaveChanges();
 

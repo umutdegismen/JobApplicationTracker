@@ -26,3 +26,4 @@ C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\obj\Debu
 C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\obj\Debug\JopApplicationTracker.frmListJobTypes.resources
 C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\obj\Debug\JopApplicationTracker.frmListStatus.resources
 C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\obj\Debug\JopApplicationTracker.frmListWebsites.resources
+C:\Users\blu3s\source\repos\JopApplicationTracker\JopApplicationTracker\obj\Debug\JopApplicationTracker.frmUpdateJobType.resources
