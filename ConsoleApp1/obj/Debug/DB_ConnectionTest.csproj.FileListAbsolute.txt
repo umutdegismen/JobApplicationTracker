@@ -5,3 +5,10 @@ C:\Users\blu3s\source\repos\JopApplicationTracker\ConsoleApp1\obj\Debug\DB_Conne
 C:\Users\blu3s\source\repos\JopApplicationTracker\ConsoleApp1\obj\Debug\DB_ConnectionTest.csproj.CoreCompileInputs.cache
 C:\Users\blu3s\source\repos\JopApplicationTracker\ConsoleApp1\obj\Debug\ConsoleApp1.exe
 C:\Users\blu3s\source\repos\JopApplicationTracker\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
+C:\Users\blu3s\source\repos\JobApplicationTracker\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+C:\Users\blu3s\source\repos\JobApplicationTracker\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\Users\blu3s\source\repos\JobApplicationTracker\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\Users\blu3s\source\repos\JobApplicationTracker\ConsoleApp1\obj\Debug\DB_ConnectionTest.csproj.AssemblyReference.cache
+C:\Users\blu3s\source\repos\JobApplicationTracker\ConsoleApp1\obj\Debug\DB_ConnectionTest.csproj.CoreCompileInputs.cache
+C:\Users\blu3s\source\repos\JobApplicationTracker\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+C:\Users\blu3s\source\repos\JobApplicationTracker\ConsoleApp1\obj\Debug\ConsoleApp1.pdb

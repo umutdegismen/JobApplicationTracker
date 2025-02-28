@@ -12,6 +12,7 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             string connectionString = "Server=ASUS-BLU3SM4N\\SQLEXPRESS;Database=JobApplicationDB;Trusted_Connection=True;";
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
