@@ -63,7 +63,7 @@ namespace JobApplicationTracker
             }
 
             // UI updates after database operation
-            MessageBox.Show($"{txtWebsite.Text} is added successfully!");
+            MessageBox.Show($"{txtWebsite.Text} is successfully added!");
             txtWebsite.Text = "";
             this.Close();
         }

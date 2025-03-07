@@ -47,7 +47,7 @@ namespace JobApplicationTracker
                         };
 
             dgvStatus.DataSource = query.ToList();
-            
+
             // add row count in the row header
             CommonMethods.numerateDataGridView(dgvStatus);
 
@@ -64,6 +64,36 @@ namespace JobApplicationTracker
 
             frmUpdateStatus f = new frmUpdateStatus(idToDeleteOrUpdate);
             f.Show();
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            idToDeleteOrUpdate = Convert.ToInt32(dgvStatus.SelectedRows[0].Cells[0].Value);
+            ApplicationStatu statusToDelete = db.ApplicationStatus.Find(idToDeleteOrUpdate);
+            string statusDeleteStr = statusToDelete.JobStatus;
+
+            DialogResult ds = MessageBox.Show("Do you want to delete '" + statusDeleteStr + "' ?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (ds == DialogResult.Yes)
+            {
+                try
+                {
+                    db.ApplicationStatus.Remove(statusToDelete);
+                    db.SaveChanges();
+
+                    MessageBox.Show("'" + statusDeleteStr + "' is successfully deleted!");
+
+                    dgvStatus.Columns.Clear();
+                    listStatus();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+
+
+
         }
     }
 }

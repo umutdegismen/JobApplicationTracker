@@ -65,7 +65,7 @@ namespace JobApplicationTracker
 
 
             // UI updates after database operation
-            MessageBox.Show($"{txtAddStatus.Text} is added successfully!");
+            MessageBox.Show($"{txtAddStatus.Text} is successfully added!");
             txtAddStatus.Text = "";
             this.Close();
         }
