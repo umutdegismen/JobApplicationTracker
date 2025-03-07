@@ -37,7 +37,7 @@ namespace JobApplicationTracker
         /// This method lists the status.
         /// 
         /// </summary>
-        private void listStatus()
+        public void listStatus()
         {
             var query = from x in db.ApplicationStatus
                         select new

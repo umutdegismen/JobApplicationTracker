@@ -45,12 +45,12 @@ namespace JobApplicationTracker
 
                 if (questionResult == DialogResult.OK)
                 {
-                    saveChanges();
+                    save();
                 }
             }
             else
             {
-                saveChanges();
+                save();
             }
         }
 
@@ -58,7 +58,7 @@ namespace JobApplicationTracker
         /// This method saves changes to DataBase.
         /// 
         /// </summary>
-        private void saveChanges()
+        private void save()
         {
             // save changes to DB
             stateToUpdate.State1 = newState;

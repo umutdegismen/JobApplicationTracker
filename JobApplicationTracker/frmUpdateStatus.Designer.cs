@@ -43,6 +43,7 @@
             this.btnCancelUpdate.TabIndex = 16;
             this.btnCancelUpdate.Text = "Cancel";
             this.btnCancelUpdate.UseVisualStyleBackColor = true;
+            this.btnCancelUpdate.Click += new System.EventHandler(this.btnCancelUpdate_Click);
             // 
             // label1
             // 
@@ -68,6 +69,7 @@
             this.btnUpdateStatus.TabIndex = 13;
             this.btnUpdateStatus.Text = "Update";
             this.btnUpdateStatus.UseVisualStyleBackColor = true;
+            this.btnUpdateStatus.Click += new System.EventHandler(this.btnUpdateStatus_Click);
             // 
             // frmUpdateStatus
             // 
