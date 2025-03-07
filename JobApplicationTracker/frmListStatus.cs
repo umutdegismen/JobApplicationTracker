@@ -19,6 +19,8 @@ namespace JobApplicationTracker
 
         JobApplicationDBEntities db = new JobApplicationDBEntities();
 
+        int idToDeleteOrUpdate;
+
         private void frmListStatus_Load(object sender, EventArgs e)
         {
             listStatus();
@@ -54,6 +56,14 @@ namespace JobApplicationTracker
             dgvStatus.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvStatus.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvStatus.MultiSelect = false;
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            idToDeleteOrUpdate = Convert.ToInt32(dgvStatus.SelectedRows[0].Cells[0].Value);
+
+            frmUpdateStatus f = new frmUpdateStatus(idToDeleteOrUpdate);
+            f.Show();
         }
     }
 }
