@@ -28,6 +28,7 @@ namespace JobApplicationTracker
             else
             {
                 saveJobType();
+                listJobType();
             }
         }
 
@@ -67,6 +68,14 @@ namespace JobApplicationTracker
             MessageBox.Show($"{txtJobType.Text} is successfully added!");
             txtJobType.Text = "";
             this.Close();
+        }
+
+
+        public void listJobType()
+        {
+            frmListJobTypes f = (frmListJobTypes)System.Windows.Forms.Application.OpenForms["frmListJobTypes"];
+            f.dgvJobTypes.Columns.Clear();
+            f.listJobTypes();
         }
     }
 }

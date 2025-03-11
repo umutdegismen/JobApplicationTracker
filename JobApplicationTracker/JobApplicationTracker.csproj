@@ -72,6 +72,7 @@
       <DependentUpon>JobApplicationDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CommonMethods.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="frmAddApplcation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -269,6 +270,9 @@
       <DependentUpon>JobApplicationDBModel.edmx</DependentUpon>
       <LastGenOutput>JobApplicationDBModel.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -28,6 +28,7 @@ namespace JobApplicationTracker
             else
             {
                 saveStatus();
+                listStatus();
             }
         }
 
@@ -68,6 +69,14 @@ namespace JobApplicationTracker
             MessageBox.Show($"{txtAddStatus.Text} is successfully added!");
             txtAddStatus.Text = "";
             this.Close();
+        }
+
+
+        public void listStatus()
+        {
+            frmListStatus f = (frmListStatus)System.Windows.Forms.Application.OpenForms["frmListStatus"];
+            f.dgvStatus.Columns.Clear();
+            f.listStatus();
         }
     }
 }

@@ -25,6 +25,7 @@ namespace ConsoleApp1
                     Console.WriteLine($"Connection failed: {ex.Message}");
                 }
             }
+
         }
     }
 }

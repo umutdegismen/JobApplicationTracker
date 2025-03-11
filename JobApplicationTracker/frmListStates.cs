@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Migrations.Model;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -69,7 +71,9 @@ namespace JobApplicationTracker
 
 
         /// <summary>
-        /// This method lists the states.
+        /// This method lists the states using Entity Framework (LINQ to Entities).
+        /// 
+        /// (Can be slower for large data sets)
         /// 
         /// </summary>
         public void listStates()
@@ -93,6 +97,44 @@ namespace JobApplicationTracker
             CommonMethods.numerateDataGridView(dgvStates);
         }
 
+        /// <summary>
+        /// This method lists the states using SqlConnection ADO.NET Approach (Disconnected Data Access)
+        /// 
+        /// (Can be faster for large data sets)
+        /// 
+        /// </summary>
+        public void listStates_AdoNet()
+        {
+            string connectionString = Constants.CONNECTION_STRING;
 
+            string query = "SELECT * FROM States";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (SqlDataAdapter adapter = new SqlDataAdapter(query,connection))
+                {
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    dgvStates.DataSource = dt;
+
+                    // DataGriidView settings
+                    dgvStates.Columns[0].Visible = false;
+                    dgvStates.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                    dgvStates.MultiSelect = false;
+
+                    // add row count in the row header
+                    CommonMethods.numerateDataGridView(dgvStates);
+                }
+            }
+        }
+
+        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddState f = new frmAddState();
+            f.ShowDialog();
+        }
     }
 }

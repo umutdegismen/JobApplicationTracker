@@ -82,7 +82,7 @@ namespace JobApplicationTracker
         {
             frmListJobTypes f = (frmListJobTypes)System.Windows.Forms.Application.OpenForms["frmListJobTypes"];
             f.dgvJobTypes.Columns.Clear();
-            frmListJobTypes.listJobTypes(f.dgvJobTypes, db);
+            f.listJobTypes();
         }
     }
 }
