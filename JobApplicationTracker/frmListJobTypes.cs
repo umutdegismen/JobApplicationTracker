@@ -23,10 +23,10 @@ namespace JobApplicationTracker
 
         private void frmListJopTypes_Load(object sender, EventArgs e)
         {
-            listJobTypes(dgvJobTypes, db);
+            listJobTypes();
         }
 
-        public static void listJobTypes(DataGridView dgv, JobApplicationDBEntities db)
+        public void listJobTypes()
         {
             var query = from x in db.JobTypes
                         select new
@@ -35,16 +35,16 @@ namespace JobApplicationTracker
                             JobType = x.JobType1
                         };
 
-            dgv.DataSource = query.ToList();
+            dgvJobTypes.DataSource = query.ToList();
 
             // dataGridView settings
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv.MultiSelect = false;
-            dgv.Columns[0].Visible = false;
+            dgvJobTypes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvJobTypes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvJobTypes.MultiSelect = false;
+            dgvJobTypes.Columns[0].Visible = false;
 
             // add row count in the row header
-            CommonMethods.numerateDataGridView(dgv);
+            CommonMethods.numerateDataGridView(dgvJobTypes);
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
@@ -73,9 +73,15 @@ namespace JobApplicationTracker
 
                 // refresh the DataGridView
                 CommonMethods.dgvClear(dgvJobTypes);
-                listJobTypes(dgvJobTypes, db);
+                listJobTypes();
             }
 
+        }
+
+        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddJobType f = new frmAddJobType();
+            f.ShowDialog();
         }
     }
 }

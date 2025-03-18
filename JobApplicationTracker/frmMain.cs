@@ -108,7 +108,7 @@ namespace JobApplicationTracker
         // menu strip click events
         private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Hitch your wagon to a star 🫵🤘 \nVersion 5.2.0", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Hitch your wagon to a star 🫵🤘 \nVersion 1.0.0", "About", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
         }
         private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -131,37 +131,20 @@ namespace JobApplicationTracker
             openAddStateForm();
         }
 
-        private void btnAddState_Click(object sender, EventArgs e)
-        {
-            openAddStateForm();
-        }
 
         private void newWebsiteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openAddWebsiteForm();
         }
 
-        private void btnWebsite_Click(object sender, EventArgs e)
-        {
-            openAddWebsiteForm();
-        }
 
         private void newEnvironmentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openAddJobTypeForm();
         }
 
-        private void btnAddJobType_Click(object sender, EventArgs e)
-        {
-            openAddJobTypeForm();
-        }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            openAddStatusForm();
-        }
-
-        private void btnStatus_Click(object sender, EventArgs e)
         {
             openAddStatusForm();
         }
@@ -214,7 +197,6 @@ namespace JobApplicationTracker
             frmAddApplication f = new frmAddApplication();
             f.ShowDialog();
         }
-
         private void openAddJobTypeForm()
         {
             frmAddJobType f = new frmAddJobType();
@@ -230,6 +212,7 @@ namespace JobApplicationTracker
             frmAddState f = new frmAddState();
             f.ShowDialog();
         }
+
         private void openAddStatusForm()
         {
             frmAddStatus f = new frmAddStatus();
@@ -260,7 +243,5 @@ namespace JobApplicationTracker
             frmListWebsites f = new frmListWebsites();
             f.ShowDialog();
         }
-
-
     }
 }

@@ -67,6 +67,7 @@ namespace JobApplicationTracker
             MessageBox.Show($"{txtStates.Text} is successfully added!");
             txtStates.Text = "";
             this.Close();
+            dgvRefresh();
         }
 
         private void btnStateList_Click(object sender, EventArgs e)
@@ -74,6 +75,13 @@ namespace JobApplicationTracker
             this.Close();
             frmAddStateList f = new frmAddStateList();
             f.ShowDialog();
+        }
+
+        private void dgvRefresh()
+        {
+            frmListStates f = (frmListStates)System.Windows.Forms.Application.OpenForms["frmListStates"];
+            f.dgvStates.Columns.Clear();
+            f.listStates();
         }
     }
 }

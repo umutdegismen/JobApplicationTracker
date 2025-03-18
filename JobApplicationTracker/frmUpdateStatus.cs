@@ -81,7 +81,7 @@ namespace JobApplicationTracker
             f.listStatus();
         }
 
-        private void btnCancelUpdate_Click(object sender, EventArgs e)
+        private void btnCancelStatus_Click(object sender, EventArgs e)
         {
             this.Close();
         }

@@ -29,47 +29,58 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dgvStates = new System.Windows.Forms.DataGridView();
+            this.dgvWebsites = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStates)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWebsites)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dgvStates
+            // dgvWebsites
             // 
-            this.dgvStates.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvStates.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStates.ContextMenuStrip = this.contextMenuStrip1;
-            this.dgvStates.Location = new System.Drawing.Point(34, 57);
-            this.dgvStates.Name = "dgvStates";
-            this.dgvStates.RowHeadersWidth = 72;
-            this.dgvStates.RowTemplate.Height = 31;
-            this.dgvStates.Size = new System.Drawing.Size(409, 281);
-            this.dgvStates.TabIndex = 8;
+            this.dgvWebsites.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvWebsites.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvWebsites.ContextMenuStrip = this.contextMenuStrip1;
+            this.dgvWebsites.Location = new System.Drawing.Point(34, 57);
+            this.dgvWebsites.Name = "dgvWebsites";
+            this.dgvWebsites.RowHeadersWidth = 72;
+            this.dgvWebsites.RowTemplate.Height = 31;
+            this.dgvWebsites.Size = new System.Drawing.Size(409, 622);
+            this.dgvWebsites.TabIndex = 8;
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(28, 28);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addToolStripMenuItem,
             this.editToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(147, 76);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(271, 150);
+            // 
+            // addToolStripMenuItem
+            // 
+            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(270, 36);
+            this.addToolStripMenuItem.Text = "Add";
+            this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(146, 36);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(270, 36);
             this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(146, 36);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(270, 36);
             this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -84,15 +95,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(472, 358);
-            this.Controls.Add(this.dgvStates);
+            this.ClientSize = new System.Drawing.Size(472, 708);
+            this.Controls.Add(this.dgvWebsites);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmListWebsites";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Application Websites";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStates)).EndInit();
+            this.Load += new System.EventHandler(this.frmListWebsites_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWebsites)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -101,10 +113,11 @@
 
         #endregion
 
-        public System.Windows.Forms.DataGridView dgvStates;
+        public System.Windows.Forms.DataGridView dgvWebsites;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
     }
 }

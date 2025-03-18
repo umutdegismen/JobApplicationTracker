@@ -28,6 +28,7 @@ namespace JobApplicationTracker
             else
             {
                 saveWebsite();
+                listWebsites();
             }
         }
 
@@ -66,6 +67,14 @@ namespace JobApplicationTracker
             MessageBox.Show($"{txtWebsite.Text} is successfully added!");
             txtWebsite.Text = "";
             this.Close();
+        }
+
+
+        public void listWebsites()
+        {
+            frmListWebsites f = (frmListWebsites)System.Windows.Forms.Application.OpenForms["frmListWebsites"];
+            f.dgvWebsites.Columns.Clear();
+            f.listWebsites();
         }
     }
 }

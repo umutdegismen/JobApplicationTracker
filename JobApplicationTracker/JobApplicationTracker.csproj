@@ -72,6 +72,7 @@
       <DependentUpon>JobApplicationDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CommonMethods.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="frmAddApplcation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +157,12 @@
     <Compile Include="frmUpdateStatus.Designer.cs">
       <DependentUpon>frmUpdateStatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmUpdateWebsites.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUpdateWebsites.Designer.cs">
+      <DependentUpon>frmUpdateWebsites.cs</DependentUpon>
+    </Compile>
     <Compile Include="JobApplicationDBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -224,6 +231,9 @@
     <EmbeddedResource Include="frmUpdateStatus.resx">
       <DependentUpon>frmUpdateStatus.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmUpdateWebsites.resx">
+      <DependentUpon>frmUpdateWebsites.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -269,6 +279,9 @@
       <DependentUpon>JobApplicationDBModel.edmx</DependentUpon>
       <LastGenOutput>JobApplicationDBModel.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

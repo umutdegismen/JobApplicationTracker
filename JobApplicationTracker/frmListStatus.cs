@@ -95,5 +95,11 @@ namespace JobApplicationTracker
 
 
         }
+
+        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddStatus f = new frmAddStatus();
+            f.ShowDialog();
+        }
     }
 }
