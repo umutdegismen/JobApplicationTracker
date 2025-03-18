@@ -108,7 +108,7 @@ namespace JobApplicationTracker
         // menu strip click events
         private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Hitch your wagon to a star 🫵🤘 \nVersion 5.2.0", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Hitch your wagon to a star 🫵🤘 \nVersion 1.0.0", "About", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
         }
         private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -243,7 +243,5 @@ namespace JobApplicationTracker
             frmListWebsites f = new frmListWebsites();
             f.ShowDialog();
         }
-
-
     }
 }

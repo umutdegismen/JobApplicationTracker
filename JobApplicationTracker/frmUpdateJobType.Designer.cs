@@ -43,6 +43,7 @@
             this.btnCancelUpdate.TabIndex = 16;
             this.btnCancelUpdate.Text = "Cancel";
             this.btnCancelUpdate.UseVisualStyleBackColor = true;
+            this.btnCancelUpdate.Click += new System.EventHandler(this.btnCancelUpdate_Click);
             // 
             // label1
             // 
@@ -75,7 +76,6 @@
             this.AcceptButton = this.btnUpdateJobType;
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnCancelUpdate;
             this.ClientSize = new System.Drawing.Size(538, 180);
             this.Controls.Add(this.btnCancelUpdate);
             this.Controls.Add(this.label1);

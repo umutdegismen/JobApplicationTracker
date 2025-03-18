@@ -53,7 +53,7 @@ namespace JobApplicationTracker
                     db.SaveChanges();
 
                     MessageBox.Show("'" + stateToDeleteName + "' is succesfully deleted!");
-                    
+
                     // refresh the DataGridView
                     dgvStates.Columns.Clear();
                     listStates();
@@ -113,7 +113,7 @@ namespace JobApplicationTracker
             {
                 connection.Open();
 
-                using (SqlDataAdapter adapter = new SqlDataAdapter(query,connection))
+                using (SqlDataAdapter adapter = new SqlDataAdapter(query, connection))
                 {
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);

@@ -21,6 +21,8 @@ namespace JobApplicationTracker
 
         JobApplicationDBEntities db = new JobApplicationDBEntities();
 
+        int selectedRowId;
+
 
         private void frmListWebsites_Load(object sender, EventArgs e)
         {
@@ -94,6 +96,41 @@ namespace JobApplicationTracker
         {
             frmAddWebsite f = new frmAddWebsite();
             f.ShowDialog();
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            selectedRowId = Convert.ToInt32(dgvWebsites.SelectedRows[0].Cells[0].Value);
+
+            frmUpdateWebsites f = new frmUpdateWebsites(selectedRowId);
+            f.Show();
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            selectedRowId = Convert.ToInt32(dgvWebsites.SelectedRows[0].Cells[0].Value);
+            ApplicationWebsite selectedWebsite = db.ApplicationWebsites.Find(selectedRowId);
+            string websiteName = selectedWebsite.ApplicationWebsite1;
+
+            DialogResult ds = MessageBox.Show($"Do you want to delete '{websiteName}'", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (ds == DialogResult.OK)
+            {
+                try
+                {
+                    db.ApplicationWebsites.Remove(selectedWebsite);
+                    db.SaveChanges();
+
+                    MessageBox.Show($"'{websiteName}' is successfully deleted!");
+
+                    dgvWebsites.Columns.Clear();
+                    listWebsites();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
     }
 }

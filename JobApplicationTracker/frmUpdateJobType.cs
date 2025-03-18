@@ -84,5 +84,10 @@ namespace JobApplicationTracker
             f.dgvJobTypes.Columns.Clear();
             f.listJobTypes();
         }
+
+        private void btnCancelUpdate_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

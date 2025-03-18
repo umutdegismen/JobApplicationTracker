@@ -28,22 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnCancelUpdate = new System.Windows.Forms.Button();
+            this.btnCancelStatus = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtUpdateStatus = new System.Windows.Forms.TextBox();
             this.btnUpdateStatus = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnCancelUpdate
+            // btnCancelStatus
             // 
-            this.btnCancelUpdate.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelUpdate.Location = new System.Drawing.Point(12, 117);
-            this.btnCancelUpdate.Name = "btnCancelUpdate";
-            this.btnCancelUpdate.Size = new System.Drawing.Size(130, 43);
-            this.btnCancelUpdate.TabIndex = 16;
-            this.btnCancelUpdate.Text = "Cancel";
-            this.btnCancelUpdate.UseVisualStyleBackColor = true;
-            this.btnCancelUpdate.Click += new System.EventHandler(this.btnCancelUpdate_Click);
+            this.btnCancelStatus.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelStatus.Location = new System.Drawing.Point(12, 117);
+            this.btnCancelStatus.Name = "btnCancelStatus";
+            this.btnCancelStatus.Size = new System.Drawing.Size(130, 43);
+            this.btnCancelStatus.TabIndex = 16;
+            this.btnCancelStatus.Text = "Cancel";
+            this.btnCancelStatus.UseVisualStyleBackColor = true;
+            this.btnCancelStatus.Click += new System.EventHandler(this.btnCancelStatus_Click);
             // 
             // label1
             // 
@@ -76,9 +76,8 @@
             this.AcceptButton = this.btnUpdateStatus;
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnCancelUpdate;
             this.ClientSize = new System.Drawing.Size(446, 180);
-            this.Controls.Add(this.btnCancelUpdate);
+            this.Controls.Add(this.btnCancelStatus);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtUpdateStatus);
             this.Controls.Add(this.btnUpdateStatus);
@@ -95,7 +94,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnCancelUpdate;
+        private System.Windows.Forms.Button btnCancelStatus;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtUpdateStatus;
         private System.Windows.Forms.Button btnUpdateStatus;

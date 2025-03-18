@@ -64,6 +64,19 @@ namespace JobApplicationTracker
             txtStatesList.Text = "";
             MessageBox.Show("The States are successfully added!");
             this.Close();
+            dgvRefresh();
         }
+
+        /// <summary>
+        /// This method cleans the DataGridView in frmListStates and relists the items.
+        /// </summary>
+        private void dgvRefresh()
+        {
+            frmListStates f = (frmListStates)System.Windows.Forms.Application.OpenForms["frmListStates"];
+            f.dgvStates.Columns.Clear();
+            f.listStates();
+        }
+
+
     }
 }

@@ -157,6 +157,12 @@
     <Compile Include="frmUpdateStatus.Designer.cs">
       <DependentUpon>frmUpdateStatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmUpdateWebsites.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUpdateWebsites.Designer.cs">
+      <DependentUpon>frmUpdateWebsites.cs</DependentUpon>
+    </Compile>
     <Compile Include="JobApplicationDBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -224,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmUpdateStatus.resx">
       <DependentUpon>frmUpdateStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUpdateWebsites.resx">
+      <DependentUpon>frmUpdateWebsites.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

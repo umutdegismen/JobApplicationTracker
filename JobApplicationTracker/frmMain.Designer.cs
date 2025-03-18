@@ -34,16 +34,16 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newJobToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newStateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newWebsiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newEnvironmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newStateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newWebsiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.applicationWebsitesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.workEnvironmentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.seeTheStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.applicationWebsitesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.btnViewStatus = new System.Windows.Forms.Button();
@@ -110,48 +110,48 @@
             this.newStateToolStripMenuItem,
             this.newWebsiteToolStripMenuItem});
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(173, 40);
             this.exitToolStripMenuItem.Text = "New";
             // 
             // newJobToolStripMenuItem
             // 
             this.newJobToolStripMenuItem.Name = "newJobToolStripMenuItem";
-            this.newJobToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.newJobToolStripMenuItem.Size = new System.Drawing.Size(246, 40);
             this.newJobToolStripMenuItem.Text = "Application..";
             this.newJobToolStripMenuItem.Click += new System.EventHandler(this.newJobToolStripMenuItem_Click);
-            // 
-            // newStateToolStripMenuItem
-            // 
-            this.newStateToolStripMenuItem.Name = "newStateToolStripMenuItem";
-            this.newStateToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
-            this.newStateToolStripMenuItem.Text = "State..";
-            this.newStateToolStripMenuItem.Click += new System.EventHandler(this.newStateToolStripMenuItem_Click);
-            // 
-            // newWebsiteToolStripMenuItem
-            // 
-            this.newWebsiteToolStripMenuItem.Name = "newWebsiteToolStripMenuItem";
-            this.newWebsiteToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
-            this.newWebsiteToolStripMenuItem.Text = "Website..";
-            this.newWebsiteToolStripMenuItem.Click += new System.EventHandler(this.newWebsiteToolStripMenuItem_Click);
             // 
             // newEnvironmentToolStripMenuItem
             // 
             this.newEnvironmentToolStripMenuItem.Name = "newEnvironmentToolStripMenuItem";
-            this.newEnvironmentToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.newEnvironmentToolStripMenuItem.Size = new System.Drawing.Size(246, 40);
             this.newEnvironmentToolStripMenuItem.Text = "Job Type..";
             this.newEnvironmentToolStripMenuItem.Click += new System.EventHandler(this.newEnvironmentToolStripMenuItem_Click);
             // 
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(246, 40);
             this.newToolStripMenuItem.Text = "Status..";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
+            // newStateToolStripMenuItem
+            // 
+            this.newStateToolStripMenuItem.Name = "newStateToolStripMenuItem";
+            this.newStateToolStripMenuItem.Size = new System.Drawing.Size(246, 40);
+            this.newStateToolStripMenuItem.Text = "State..";
+            this.newStateToolStripMenuItem.Click += new System.EventHandler(this.newStateToolStripMenuItem_Click);
+            // 
+            // newWebsiteToolStripMenuItem
+            // 
+            this.newWebsiteToolStripMenuItem.Name = "newWebsiteToolStripMenuItem";
+            this.newWebsiteToolStripMenuItem.Size = new System.Drawing.Size(246, 40);
+            this.newWebsiteToolStripMenuItem.Text = "Website..";
+            this.newWebsiteToolStripMenuItem.Click += new System.EventHandler(this.newWebsiteToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem1
             // 
             this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(169, 40);
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(173, 40);
             this.exitToolStripMenuItem1.Text = "Exit";
             this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
             // 
@@ -166,33 +166,33 @@
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(75, 34);
             this.viewToolStripMenuItem.Text = "View";
             // 
-            // statesToolStripMenuItem
-            // 
-            this.statesToolStripMenuItem.Name = "statesToolStripMenuItem";
-            this.statesToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
-            this.statesToolStripMenuItem.Text = "States";
-            this.statesToolStripMenuItem.Click += new System.EventHandler(this.statesToolStripMenuItem_Click);
-            // 
-            // applicationWebsitesToolStripMenuItem
-            // 
-            this.applicationWebsitesToolStripMenuItem.Name = "applicationWebsitesToolStripMenuItem";
-            this.applicationWebsitesToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
-            this.applicationWebsitesToolStripMenuItem.Text = "Websites";
-            this.applicationWebsitesToolStripMenuItem.Click += new System.EventHandler(this.applicationWebsitesToolStripMenuItem_Click);
-            // 
             // workEnvironmentsToolStripMenuItem
             // 
             this.workEnvironmentsToolStripMenuItem.Name = "workEnvironmentsToolStripMenuItem";
-            this.workEnvironmentsToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.workEnvironmentsToolStripMenuItem.Size = new System.Drawing.Size(221, 40);
             this.workEnvironmentsToolStripMenuItem.Text = "Job Types";
             this.workEnvironmentsToolStripMenuItem.Click += new System.EventHandler(this.workEnvironmentsToolStripMenuItem_Click);
             // 
             // seeTheStatusToolStripMenuItem
             // 
             this.seeTheStatusToolStripMenuItem.Name = "seeTheStatusToolStripMenuItem";
-            this.seeTheStatusToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.seeTheStatusToolStripMenuItem.Size = new System.Drawing.Size(221, 40);
             this.seeTheStatusToolStripMenuItem.Text = "Status";
             this.seeTheStatusToolStripMenuItem.Click += new System.EventHandler(this.seeTheStatusToolStripMenuItem_Click);
+            // 
+            // statesToolStripMenuItem
+            // 
+            this.statesToolStripMenuItem.Name = "statesToolStripMenuItem";
+            this.statesToolStripMenuItem.Size = new System.Drawing.Size(221, 40);
+            this.statesToolStripMenuItem.Text = "States";
+            this.statesToolStripMenuItem.Click += new System.EventHandler(this.statesToolStripMenuItem_Click);
+            // 
+            // applicationWebsitesToolStripMenuItem
+            // 
+            this.applicationWebsitesToolStripMenuItem.Name = "applicationWebsitesToolStripMenuItem";
+            this.applicationWebsitesToolStripMenuItem.Size = new System.Drawing.Size(221, 40);
+            this.applicationWebsitesToolStripMenuItem.Text = "Websites";
+            this.applicationWebsitesToolStripMenuItem.Click += new System.EventHandler(this.applicationWebsitesToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -205,7 +205,7 @@
             // aboutToolStripMenuItem1
             // 
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(188, 40);
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(315, 40);
             this.aboutToolStripMenuItem1.Text = "About";
             this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.aboutToolStripMenuItem1_Click);
             // 
