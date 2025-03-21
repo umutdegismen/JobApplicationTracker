@@ -55,6 +55,9 @@
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.cmbStatus = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.applicationsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,7 +65,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label13.Location = new System.Drawing.Point(224, 68);
+            this.label13.Location = new System.Drawing.Point(227, 65);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(22, 30);
             this.label13.TabIndex = 41;
@@ -309,11 +312,46 @@
             this.cmbStatus.Size = new System.Drawing.Size(494, 38);
             this.cmbStatus.TabIndex = 42;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label14.Location = new System.Drawing.Point(261, 420);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(22, 30);
+            this.label14.TabIndex = 43;
+            this.label14.Text = "*";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label15.Location = new System.Drawing.Point(158, 335);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(22, 30);
+            this.label15.TabIndex = 44;
+            this.label15.Text = "*";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label16.Location = new System.Drawing.Point(120, 244);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(22, 30);
+            this.label16.TabIndex = 45;
+            this.label16.Text = "*";
+            // 
             // frmAddApplication
             // 
+            this.AcceptButton = this.btnSubmit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(936, 1171);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.cmbStatus);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
@@ -381,6 +419,9 @@
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.ComboBox cmbStatus;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
     }
 }
 

@@ -24,11 +24,14 @@ namespace JobApplicationTracker
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            saveApplication();
+            validateAndSave();
         }
+
+        
 
         private void saveApplication()
         {
+            Console.WriteLine("SAVED!");
 
         }
 
@@ -68,6 +71,32 @@ namespace JobApplicationTracker
                     comboBox.SelectedIndex = -1;
                     comboBox.Text = "Please select..";
                 }
+            }
+        }
+
+
+        private void validateAndSave()
+        {
+            var errorMessages = new List<string>();
+
+            if (cmbApplicationWebSite.SelectedIndex == -1)
+                errorMessages.Add("Please select a website!");
+            if (cmbState.SelectedIndex == -1)
+                errorMessages.Add("Please select a state!");
+            if (cmbStatus.SelectedIndex == -1)
+                errorMessages.Add("Please select the status!");
+            if (cmbWorkEnv.SelectedIndex == -1)
+                errorMessages.Add("Please select the job type!");
+            if (string.IsNullOrWhiteSpace(txtCompanyName.Text))
+                errorMessages.Add("Please enter a company name!");
+
+            if (errorMessages.Count == 0)
+            {
+                saveApplication();
+            }
+            else
+            {
+                MessageBox.Show(string.Join("\n", errorMessages), "Missing Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
