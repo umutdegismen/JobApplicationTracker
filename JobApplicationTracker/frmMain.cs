@@ -36,15 +36,18 @@ namespace JobApplicationTracker
         {
             string connectionString = ConfigurationManager.ConnectionStrings["conn"].ConnectionString;
 
-            string query = "SELECT a.CompanyName as 'Company Name' , a.City, s.State, jt.JobType AS 'Job Type', a.SalaryPerHour AS 'Hourly Salary', a.SalaryPerYear AS 'Annual Salary', aw.ApplicationWebsite AS 'Website', appStatus.JobStatus AS 'Status', a.RequiredAdditionalTools AS 'Other Tools', a.ApplicationDate AS 'Application Date', a.Notes FROM Applications a INNER JOIN States s ON a.StateId = s.Id INNER JOIN JobType jt ON a.JobTypeId = jt.Id INNER JOIN ApplicationWebsites aw ON a.ApplicationWebsiteId = aw.Id INNER JOIN ApplicationStatus appStatus ON a.StatusId = appStatus.Id;";
+            string query = "SELECT a.CompanyName AS 'Company Name', a.City, s.State, jt.JobType AS 'Job Type', a.SalaryPerHour AS 'Hourly Salary', a.SalaryPerYear AS 'Annual Salary', aw.ApplicationWebsite AS 'Website', appStatus.JobStatus AS 'Status', a.RequiredAdditionalTools AS 'Required Other Tools', a.ApplicationDate AS 'Application Date', a.Notes FROM Applications a LEFT JOIN States s ON a.StateId = s.Id LEFT JOIN JobType jt ON a.JobTypeId = jt.Id LEFT JOIN ApplicationWebsites aw ON a.ApplicationWebsiteId = aw.Id LEFT JOIN ApplicationStatus appStatus ON a.StatusId = appStatus.Id;";
 
-            SqlDataAdapter adapter = new SqlDataAdapter(query, connectionString);
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter(query, conn))
+                {
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dgvJobs.DataSource = dt;
+                }
+            }
 
-            DataTable dt = new DataTable();
-
-            adapter.Fill(dt);
-
-            dgvJobs.DataSource = dt;
 
             dgvJobs.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 

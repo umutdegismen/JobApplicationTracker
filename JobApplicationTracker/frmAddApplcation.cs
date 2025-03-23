@@ -27,12 +27,49 @@ namespace JobApplicationTracker
             validateAndSave();
         }
 
-        
+
 
         private void saveApplication()
         {
-            Console.WriteLine("SAVED!");
+            string connectionString = ConfigurationManager.ConnectionStrings["conn"].ConnectionString;
+            string query = "INSERT INTO Applications(CompanyName,City,StateId,JobTypeId,SalaryPerHour,SalaryPerYear,ApplicationWebsiteId,StatusId,RequiredAdditionalTools,Notes) VALUES (@company, @city, @state, @jobType, @salaryHour, @salaryYear, @website, @status, @additionalTool, @note);";
 
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    try
+                    {
+                        // textboxes
+                        cmd.Parameters.Add("@company", SqlDbType.NVarChar).Value = txtCompanyName.Text;
+                        cmd.Parameters.Add("@city", SqlDbType.NVarChar).Value = txtCity.Text;
+                        cmd.Parameters.Add("@additionalTool", SqlDbType.NVarChar).Value = txtRequiredTools.Text;
+                        cmd.Parameters.Add("@note", SqlDbType.NVarChar).Value = txtNotes.Text;
+                        
+                        // comboboxes
+                        cmd.Parameters.Add("@state", SqlDbType.Int).Value = cmbState.SelectedValue ?? (object)DBNull.Value;
+                        cmd.Parameters.Add("@jobType", SqlDbType.Int).Value = cmbWorkEnv.SelectedValue ?? (object)DBNull.Value;
+                        cmd.Parameters.Add("@website", SqlDbType.Int).Value = cmbApplicationWebSite.SelectedValue ?? (object)DBNull.Value;
+                        cmd.Parameters.Add("@status", SqlDbType.Int).Value = cmbStatus.SelectedValue ?? (object)DBNull.Value;
+
+                        // money type 
+                        cmd.Parameters.Add("@salaryHour", SqlDbType.Money).Value = string.IsNullOrWhiteSpace(txtSalaryHour.Text) ? (object)DBNull.Value : decimal.Parse(txtSalaryHour.Text);
+                        cmd.Parameters.Add("@salaryYear", SqlDbType.Money).Value = string.IsNullOrWhiteSpace(txtSalaryYear.Text) ? (object)DBNull.Value : decimal.Parse(txtSalaryYear.Text);
+
+
+
+
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Your job application saved successfully!");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
         }
 
 
