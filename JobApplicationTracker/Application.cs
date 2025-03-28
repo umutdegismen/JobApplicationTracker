@@ -25,7 +25,7 @@ namespace JobApplicationTracker
         public Nullable<int> StatusId { get; set; }
         public string RequiredAdditionalTools { get; set; }
         public string Notes { get; set; }
-        public System.DateTime ApplicationDate { get; set; }
+        public Nullable<System.DateTime> ApplicationDate { get; set; }
     
         public virtual ApplicationWebsite ApplicationWebsite { get; set; }
         public virtual JobType JobType { get; set; }

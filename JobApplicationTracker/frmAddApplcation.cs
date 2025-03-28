@@ -22,11 +22,19 @@ namespace JobApplicationTracker
 
         JobApplicationDBEntities db = new JobApplicationDBEntities();
 
+        private void frmAddApplication_Load(object sender, EventArgs e)
+        {
+            fillComboBoxes();
+        }
+
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             validateAndSave();
-        }
+            clearAndCloseAddApplicationForm();
+            listDgvJobs();
 
+
+        }
 
 
         private void saveApplication()
@@ -40,44 +48,61 @@ namespace JobApplicationTracker
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    try
+
+                    // if txtSalaryHour.Text or txtSalaryYear.Text is ONLY an integer!
+                    if (decimal.TryParse(txtSalaryHour.Text, out _) || (decimal.TryParse(txtSalaryYear.Text,out _)))
                     {
-                        // textboxes
-                        cmd.Parameters.Add("@company", SqlDbType.NVarChar).Value = txtCompanyName.Text;
-                        cmd.Parameters.Add("@city", SqlDbType.NVarChar).Value = txtCity.Text;
-                        cmd.Parameters.Add("@additionalTool", SqlDbType.NVarChar).Value = txtRequiredTools.Text;
-                        cmd.Parameters.Add("@note", SqlDbType.NVarChar).Value = txtNotes.Text;
-                        
-                        // comboboxes
-                        cmd.Parameters.Add("@state", SqlDbType.Int).Value = cmbState.SelectedValue ?? (object)DBNull.Value;
-                        cmd.Parameters.Add("@jobType", SqlDbType.Int).Value = cmbWorkEnv.SelectedValue ?? (object)DBNull.Value;
-                        cmd.Parameters.Add("@website", SqlDbType.Int).Value = cmbApplicationWebSite.SelectedValue ?? (object)DBNull.Value;
-                        cmd.Parameters.Add("@status", SqlDbType.Int).Value = cmbStatus.SelectedValue ?? (object)DBNull.Value;
+                        try
+                        {
+                            // textboxes
+                            cmd.Parameters.Add("@company", SqlDbType.NVarChar).Value = txtCompanyName.Text;
+                            cmd.Parameters.Add("@city", SqlDbType.NVarChar).Value = txtCity.Text;
+                            cmd.Parameters.Add("@additionalTool", SqlDbType.NVarChar).Value = txtRequiredTools.Text;
+                            cmd.Parameters.Add("@note", SqlDbType.NVarChar).Value = txtNotes.Text;
 
-                        // money type 
-                        cmd.Parameters.Add("@salaryHour", SqlDbType.Money).Value = string.IsNullOrWhiteSpace(txtSalaryHour.Text) ? (object)DBNull.Value : decimal.Parse(txtSalaryHour.Text);
-                        cmd.Parameters.Add("@salaryYear", SqlDbType.Money).Value = string.IsNullOrWhiteSpace(txtSalaryYear.Text) ? (object)DBNull.Value : decimal.Parse(txtSalaryYear.Text);
+                            // comboboxes
+                            cmd.Parameters.Add("@state", SqlDbType.Int).Value = cmbState.SelectedValue ?? (object)DBNull.Value;
+                            cmd.Parameters.Add("@jobType", SqlDbType.Int).Value = cmbWorkEnv.SelectedValue ?? (object)DBNull.Value;
+                            cmd.Parameters.Add("@website", SqlDbType.Int).Value = cmbApplicationWebSite.SelectedValue ?? (object)DBNull.Value;
+                            cmd.Parameters.Add("@status", SqlDbType.Int).Value = cmbStatus.SelectedValue ?? (object)DBNull.Value;
+
+                            string salary = txtSalaryHour.Text;
+
+                            // money type 
+
+                            cmd.Parameters.Add("@salaryHour", SqlDbType.Money).Value = string.IsNullOrWhiteSpace(txtSalaryHour.Text) ? (object)DBNull.Value : decimal.Parse(txtSalaryHour.Text);
+                            cmd.Parameters.Add("@salaryYear", SqlDbType.Money).Value = string.IsNullOrWhiteSpace(txtSalaryYear.Text) ? (object)DBNull.Value : decimal.Parse(txtSalaryYear.Text);
 
 
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Your job application saved successfully!");
 
+                            listDgvJobs();
+                            clearAndCloseAddApplicationForm();
 
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("Your job application saved successfully!");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        MessageBox.Show(ex.Message);
+                        MessageBox.Show("\"Salary per Hour\" OR \"Salary per Year\" fields can not be strings!");
                     }
+
+                    
                 }
             }
         }
 
 
-        private void frmAddApplication_Load(object sender, EventArgs e)
-        {
-            fillComboBoxes();
-        }
 
+
+        /// <summary>
+        /// This method fills the comboboxes
+        /// 
+        /// </summary>
         private void fillComboBoxes()
         {
             var stateQuery = from c in db.States select c;
@@ -112,6 +137,11 @@ namespace JobApplicationTracker
         }
 
 
+        /// <summary>
+        /// This method checks the controls on the form and creates a list of messages for unselected/null mandatory comboboxes and textboxes.
+        /// Warns tthe user not to leave the mandatory fields unselected.
+        /// 
+        /// </summary>
         private void validateAndSave()
         {
             var errorMessages = new List<string>();
@@ -135,6 +165,40 @@ namespace JobApplicationTracker
             {
                 MessageBox.Show(string.Join("\n", errorMessages), "Missing Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+
+        /// <summary>
+        /// This method refreshes and lists the datagridview (dgvJobs) elements on the frmMain
+        /// 
+        /// </summary>
+        public void listDgvJobs()
+        {
+            frmMain f = (frmMain)System.Windows.Forms.Application.OpenForms["frmMain"];
+            f.dgvJobsListWithAdoNet();
+        }
+
+
+        /// <summary>
+        /// This method checks every Control on the windows form and returns it to default.
+        /// 
+        /// </summary>
+        public void clearAndCloseAddApplicationForm()
+        {
+            foreach (Control c in this.Controls)
+            {
+                if(c is TextBox txt)
+                {
+                    txt.Clear();
+                }
+                if (c is ComboBox cmb)
+                {
+                    cmb.SelectedIndex = -1;
+                    cmb.Text = "Please select..";
+                }
+            }
+
+            this.Close();
         }
     }
 }

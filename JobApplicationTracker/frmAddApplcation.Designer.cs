@@ -58,6 +58,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.applicationsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,9 +88,9 @@
             this.label11.Font = new System.Drawing.Font("Segoe UI", 7F);
             this.label11.Location = new System.Drawing.Point(73, 1136);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(193, 23);
+            this.label11.Size = new System.Drawing.Size(200, 23);
             this.label11.TabIndex = 39;
-            this.label11.Text = "Denotes a required field";
+            this.label11.Text = "Denotes a required fields";
             // 
             // label10
             // 
@@ -316,7 +317,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label14.Location = new System.Drawing.Point(261, 420);
+            this.label14.Location = new System.Drawing.Point(262, 420);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(22, 30);
             this.label14.TabIndex = 43;
@@ -326,7 +327,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label15.Location = new System.Drawing.Point(158, 335);
+            this.label15.Location = new System.Drawing.Point(159, 331);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(22, 30);
             this.label15.TabIndex = 44;
@@ -336,11 +337,21 @@
             // 
             this.label16.AutoSize = true;
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label16.Location = new System.Drawing.Point(120, 244);
+            this.label16.Location = new System.Drawing.Point(124, 244);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(22, 30);
             this.label16.TabIndex = 45;
             this.label16.Text = "*";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label17.Location = new System.Drawing.Point(132, 771);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(22, 30);
+            this.label17.TabIndex = 46;
+            this.label17.Text = "*";
             // 
             // frmAddApplication
             // 
@@ -349,6 +360,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(936, 1171);
+            this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
@@ -422,6 +434,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
     }
 }
 
