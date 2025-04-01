@@ -28,11 +28,6 @@ namespace JobApplicationTracker
 
 
 
-
-
-        // ------------------------ Methods ------------------------
-
-
         /// <summary>
         /// This method lists the status.
         /// 

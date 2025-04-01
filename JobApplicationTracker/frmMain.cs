@@ -15,48 +15,70 @@ namespace JobApplicationTracker
 {
     public partial class frmMain : Form
     {
+
+
+        // variables
+        JobApplicationDBEntities db = new JobApplicationDBEntities();
+        int idToDeleteOrUpdate;
+        
+
         public frmMain()
         {
             InitializeComponent();
         }
 
 
-        JobApplicationDBEntities db = new JobApplicationDBEntities();
-
         private void frmMain_Load(object sender, EventArgs e)
         {
-            fillDgvJobsWithQuery();
-            //fillDgvJobsWithEntityFramework();
+            dgvJobsListWithAdoNet();
+            //dgvJobsListWithEntityFramework();
         }
 
+        
 
 
-        // page load methods
-        public void fillDgvJobsWithQuery()
+        /// <summary>
+        /// This method fills the datagridview using ADO.net Connected Approach (Using SqlCommand and SqlDataReader)
+        /// This method is efficient for reading large amounts of data because it reads one row at a time.
+        /// 
+        /// </summary>
+        public void dgvJobsListWithAdoNet()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["conn"].ConnectionString;
 
-            string query = "SELECT a.CompanyName as 'Company Name' , a.City, s.State, jt.JobType AS 'Job Type', a.SalaryPerHour AS 'Hourly Salary', a.SalaryPerYear AS 'Annual Salary', aw.ApplicationWebsite AS 'Website', appStatus.JobStatus AS 'Status', a.RequiredAdditionalTools AS 'Other Tools', a.ApplicationDate AS 'Application Date', a.Notes FROM Applications a INNER JOIN States s ON a.StateId = s.Id INNER JOIN JobType jt ON a.JobTypeId = jt.Id INNER JOIN ApplicationWebsites aw ON a.ApplicationWebsiteId = aw.Id INNER JOIN ApplicationStatus appStatus ON a.StatusId = appStatus.Id;";
+            string query = "SELECT a.Id, a.CompanyName AS 'Company Name', a.City, s.State, jt.JobType AS 'Job Type', a.SalaryPerHour AS 'Hourly Salary', a.SalaryPerYear AS 'Annual Salary', aw.ApplicationWebsite AS 'Website', appStatus.JobStatus AS 'Status', a.RequiredAdditionalTools AS 'Required Other Tools', a.ApplicationDate AS 'Application Date', a.Notes FROM Applications a LEFT JOIN States s ON a.StateId = s.Id LEFT JOIN JobType jt ON a.JobTypeId = jt.Id LEFT JOIN ApplicationWebsites aw ON a.ApplicationWebsiteId = aw.Id LEFT JOIN ApplicationStatus appStatus ON a.StatusId = appStatus.Id;";
 
-            SqlDataAdapter adapter = new SqlDataAdapter(query, connectionString);
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter(query, conn))
+                {
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dgvJobs.DataSource = dt;
+                }
+            }
+            
+            // numarating thr first column of the datagridview
+            CommonMethods.numerateDataGridView(dgvJobs);
 
-            DataTable dt = new DataTable();
-
-            adapter.Fill(dt);
-
-            dgvJobs.DataSource = dt;
-
-            dgvJobs.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             // Alligning the headers to the center
             foreach (DataGridViewColumn header in dgvJobs.Columns)
             {
                 header.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
+            
 
+            // setting up the datagridview
+            dgvJobs.Columns[0].Visible = false;
+            dgvJobs.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvJobs.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvJobs.MultiSelect = false;
             // disable the default last added empty datagridview row
             dgvJobs.AllowUserToAddRows = false;
 
+
+            // declare the salary format (decimal or whole number)
             // change the format of money type column from '10.00' to '$10'
             /*
                 "N0"	3000 (No decimals)
@@ -65,11 +87,16 @@ namespace JobApplicationTracker
                 "C0"	$3,000 (Currency without decimals)
              */
             dgvJobs.Columns["Annual Salary"].DefaultCellStyle.Format = "C0";
-            dgvJobs.Columns["Hourly Salary"].DefaultCellStyle.Format = "C0";
-
+            dgvJobs.Columns["Hourly Salary"].DefaultCellStyle.Format = "C";
         }
 
-        private void fillDgvJobsWithEntityFramework()
+
+        // 2nd way to retrieve data. I don't use EntityFramework. I use ADO.net to retrieve data on the main page.
+        /// <summary>
+        /// This method fills the datagridview using Entity Framework using LINQ queries
+        ///
+        /// </summary>
+        public void dgvJobsListWithEntityFramework()
         {
             var query = from a in db.Applications
                         join s in db.States on a.StateId equals s.Id
@@ -78,6 +105,7 @@ namespace JobApplicationTracker
                         join appStatus in db.ApplicationStatus on a.StatusId equals appStatus.id
                         select new
                         {
+                            Id = a.Id,
                             Company = a.CompanyName,
                             City = a.City,
                             State = s.State1,
@@ -94,6 +122,9 @@ namespace JobApplicationTracker
 
             // datagridview settings
             dgvJobs.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvJobs.Columns[0].Visible = false;
+            dgvJobs.MultiSelect = false;
+            dgvJobs.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             // Alligning the headers to the center
             foreach (DataGridViewColumn header in dgvJobs.Columns)
@@ -102,19 +133,78 @@ namespace JobApplicationTracker
             }
         }
 
+        /// <summary>
+        /// This method deletes the selected row from the datagridview
+        /// 
+        /// </summary>
+        public void deleteSelectedRow()
+        {
+            try
+            {
+                idToDeleteOrUpdate = Convert.ToInt32(dgvJobs.SelectedRows[0].Cells[0].Value);
+                Application applicationToDelete = db.Applications.Find(idToDeleteOrUpdate);
+                string applicationToDeleteName = applicationToDelete.CompanyName;
 
+                DialogResult ds = MessageBox.Show($"Do you want to delete this job application with the company name '{applicationToDeleteName}' ?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (ds == DialogResult.Yes)
+                {
+                    db.Applications.Remove(applicationToDelete);
+                    db.SaveChanges();
+                    MessageBox.Show($"'{applicationToDeleteName}' is successfully deleted!");
+
+                    dgvJobs.Columns.Clear();
+                    dgvJobsListWithAdoNet();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please select an application to delete!");
+            }
+
+        }
+        /// <summary>
+        /// This method gets the ID of the selected row and opens the update form with selected row's values.
+        /// 
+        /// </summary>
+        public void editSelectedRow()
+        {
+            try
+            {
+                idToDeleteOrUpdate = Convert.ToInt32((dgvJobs.SelectedRows[0].Cells[0].Value));
+                frmUpdateApplication f = new frmUpdateApplication(idToDeleteOrUpdate);
+                f.ShowDialog();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Please select an application for editing!");
+            }
+        }
 
 
         // menu strip click events
         private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Hitch your wagon to a star 🫵🤘 \nVersion 1.0.0", "About", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            MessageBox.Show("\"If you think cents, you get cents.\r\n\tIf you think dollars, you get dollars.\"\r\n\r\nVersion 1.0.0 \r\nDeveloped by Umut Degismen", "About", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
         }
         private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Application.Exit();
         }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            deleteSelectedRow();
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            editSelectedRow();
+        }
+
+
+        // Open form methods
 
         private void newJobToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -188,6 +278,18 @@ namespace JobApplicationTracker
             openListStatusForm();
         }
 
+        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openAddApplicationForm();
+        }
+
+        private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openOptionsForm();
+        }
+
+
+
 
 
         // form openning methods
@@ -243,5 +345,12 @@ namespace JobApplicationTracker
             frmListWebsites f = new frmListWebsites();
             f.ShowDialog();
         }
+
+        private void openOptionsForm()
+        {
+            frmOptions f = new frmOptions();
+            f.ShowDialog();
+        }
+
     }
 }
