@@ -68,7 +68,7 @@
             this.btnAddJob.Location = new System.Drawing.Point(937, 1103);
             this.btnAddJob.Name = "btnAddJob";
             this.btnAddJob.Size = new System.Drawing.Size(276, 75);
-            this.btnAddJob.TabIndex = 0;
+            this.btnAddJob.TabIndex = 4;
             this.btnAddJob.Text = "New Application";
             this.btnAddJob.UseVisualStyleBackColor = true;
             this.btnAddJob.Click += new System.EventHandler(this.btnAddJob_Click);
@@ -78,6 +78,7 @@
             this.dgvJobs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvJobs.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvJobs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvJobs.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvJobs.Location = new System.Drawing.Point(12, 55);
@@ -109,6 +110,7 @@
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(146, 36);
             this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
@@ -260,7 +262,7 @@
             // aboutToolStripMenuItem1
             // 
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(188, 40);
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(315, 40);
             this.aboutToolStripMenuItem1.Text = "About";
             this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.aboutToolStripMenuItem1_Click);
             // 
@@ -270,7 +272,7 @@
             this.btnViewStatus.Location = new System.Drawing.Point(12, 1116);
             this.btnViewStatus.Name = "btnViewStatus";
             this.btnViewStatus.Size = new System.Drawing.Size(171, 62);
-            this.btnViewStatus.TabIndex = 10;
+            this.btnViewStatus.TabIndex = 0;
             this.btnViewStatus.Text = "Status";
             this.btnViewStatus.UseVisualStyleBackColor = true;
             this.btnViewStatus.Click += new System.EventHandler(this.btnViewStatus_Click);
@@ -281,7 +283,7 @@
             this.btnViewWebsites.Location = new System.Drawing.Point(366, 1116);
             this.btnViewWebsites.Name = "btnViewWebsites";
             this.btnViewWebsites.Size = new System.Drawing.Size(171, 62);
-            this.btnViewWebsites.TabIndex = 11;
+            this.btnViewWebsites.TabIndex = 2;
             this.btnViewWebsites.Text = "Websites";
             this.btnViewWebsites.UseVisualStyleBackColor = true;
             this.btnViewWebsites.Click += new System.EventHandler(this.btnViewWebsites_Click);
@@ -292,7 +294,7 @@
             this.btnViewStates.Location = new System.Drawing.Point(189, 1116);
             this.btnViewStates.Name = "btnViewStates";
             this.btnViewStates.Size = new System.Drawing.Size(171, 62);
-            this.btnViewStates.TabIndex = 12;
+            this.btnViewStates.TabIndex = 1;
             this.btnViewStates.Text = "States";
             this.btnViewStates.UseVisualStyleBackColor = true;
             this.btnViewStates.Click += new System.EventHandler(this.btnViewStates_Click);
@@ -303,7 +305,7 @@
             this.btnViewJobTypes.Location = new System.Drawing.Point(543, 1116);
             this.btnViewJobTypes.Name = "btnViewJobTypes";
             this.btnViewJobTypes.Size = new System.Drawing.Size(171, 62);
-            this.btnViewJobTypes.TabIndex = 13;
+            this.btnViewJobTypes.TabIndex = 3;
             this.btnViewJobTypes.Text = "Job Types";
             this.btnViewJobTypes.UseVisualStyleBackColor = true;
             this.btnViewJobTypes.Click += new System.EventHandler(this.btnViewJobTypes_Click);

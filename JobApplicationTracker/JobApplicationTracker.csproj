@@ -145,6 +145,12 @@
     <Compile Include="frmOptions.Designer.cs">
       <DependentUpon>frmOptions.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmUpdateApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUpdateApplication.Designer.cs">
+      <DependentUpon>frmUpdateApplication.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmUpdateJobType.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,6 +236,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmOptions.resx">
       <DependentUpon>frmOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUpdateApplication.resx">
+      <DependentUpon>frmUpdateApplication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUpdateJobType.resx">
       <DependentUpon>frmUpdateJobType.cs</DependentUpon>

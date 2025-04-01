@@ -91,7 +91,7 @@ namespace JobApplicationTracker
         }
 
 
-
+        // 2nd way to retrieve data. I don't use EntityFramework. I use ADO.net to retrieve data on the main page.
         /// <summary>
         /// This method fills the datagridview using Entity Framework using LINQ queries
         ///
@@ -139,29 +139,53 @@ namespace JobApplicationTracker
         /// </summary>
         public void deleteSelectedRow()
         {
-            idToDeleteOrUpdate = Convert.ToInt32(dgvJobs.SelectedRows[0].Cells[0].Value);
-            Application applicationToDelete = db.Applications.Find(idToDeleteOrUpdate);
-            string applicationToDeleteName = applicationToDelete.CompanyName;
-
-            DialogResult ds = MessageBox.Show($"Do you want to delete this job application with the company name '{applicationToDeleteName}' ?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (ds == DialogResult.Yes)
+            try
             {
-                db.Applications.Remove(applicationToDelete);
-                db.SaveChanges();
-                MessageBox.Show($"'{applicationToDeleteName}' is successfully deleted!");
+                idToDeleteOrUpdate = Convert.ToInt32(dgvJobs.SelectedRows[0].Cells[0].Value);
+                Application applicationToDelete = db.Applications.Find(idToDeleteOrUpdate);
+                string applicationToDeleteName = applicationToDelete.CompanyName;
 
-                dgvJobs.Columns.Clear();
-                dgvJobsListWithAdoNet();
+                DialogResult ds = MessageBox.Show($"Do you want to delete this job application with the company name '{applicationToDeleteName}' ?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (ds == DialogResult.Yes)
+                {
+                    db.Applications.Remove(applicationToDelete);
+                    db.SaveChanges();
+                    MessageBox.Show($"'{applicationToDeleteName}' is successfully deleted!");
+
+                    dgvJobs.Columns.Clear();
+                    dgvJobsListWithAdoNet();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please select an application to delete!");
             }
 
+        }
+        /// <summary>
+        /// This method gets the ID of the selected row and opens the update form with selected row's values.
+        /// 
+        /// </summary>
+        public void editSelectedRow()
+        {
+            try
+            {
+                idToDeleteOrUpdate = Convert.ToInt32((dgvJobs.SelectedRows[0].Cells[0].Value));
+                frmUpdateApplication f = new frmUpdateApplication(idToDeleteOrUpdate);
+                f.ShowDialog();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Please select an application for editing!");
+            }
         }
 
 
         // menu strip click events
         private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Hitch your wagon to a star 🫵🤘 \r\n\r\nVersion 1.0.0 \r\nDeveloped by Umut Degismen", "About", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            MessageBox.Show("\"If you think cents, you get cents.\r\n\tIf you think dollars, you get dollars.\"\r\n\r\nVersion 1.0.0 \r\nDeveloped by Umut Degismen", "About", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
         }
         private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -174,7 +198,10 @@ namespace JobApplicationTracker
             deleteSelectedRow();
         }
 
-
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            editSelectedRow();
+        }
 
 
         // Open form methods
@@ -256,7 +283,12 @@ namespace JobApplicationTracker
             openAddApplicationForm();
         }
 
- 
+        private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openOptionsForm();
+        }
+
+
 
 
 
@@ -314,10 +346,11 @@ namespace JobApplicationTracker
             f.ShowDialog();
         }
 
-        private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void openOptionsForm()
         {
             frmOptions f = new frmOptions();
             f.ShowDialog();
         }
+
     }
 }

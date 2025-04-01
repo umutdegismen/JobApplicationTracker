@@ -29,11 +29,9 @@ namespace JobApplicationTracker
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            validateAndSave();
+            validateMandatoryFields();
             clearAndCloseAddApplicationForm();
             listDgvJobs();
-
-
         }
 
 
@@ -50,7 +48,7 @@ namespace JobApplicationTracker
                 {
 
                     // if txtSalaryHour.Text or txtSalaryYear.Text is ONLY an integer!
-                    if (decimal.TryParse(txtSalaryHour.Text, out _) || (decimal.TryParse(txtSalaryYear.Text,out _)))
+                    if (decimal.TryParse(txtSalaryHour.Text, out _) || (decimal.TryParse(txtSalaryYear.Text, out _)))
                     {
                         try
                         {
@@ -91,7 +89,7 @@ namespace JobApplicationTracker
                         MessageBox.Show("\"Salary per Hour\" OR \"Salary per Year\" fields can not be strings!");
                     }
 
-                    
+
                 }
             }
         }
@@ -105,23 +103,19 @@ namespace JobApplicationTracker
         /// </summary>
         private void fillComboBoxes()
         {
-            var stateQuery = from c in db.States select c;
-            cmbState.DataSource = stateQuery.ToList();
+            cmbState.DataSource = db.States.ToList();
             cmbState.DisplayMember = "State1";
             cmbState.ValueMember = "Id";
 
-            var jobTypeQuery = from x in db.JobTypes select x;
-            cmbWorkEnv.DataSource = jobTypeQuery.ToList();
+            cmbWorkEnv.DataSource = db.JobTypes.ToList();
             cmbWorkEnv.DisplayMember = "JobType1";
             cmbWorkEnv.ValueMember = "Id";
 
-            var websiteQuery = from x in db.ApplicationWebsites select x;
-            cmbApplicationWebSite.DataSource = websiteQuery.ToList();
+            cmbApplicationWebSite.DataSource = db.ApplicationWebsites.ToList();
             cmbApplicationWebSite.DisplayMember = "ApplicationWebsite1";
             cmbApplicationWebSite.ValueMember = "Id";
 
-            var statusQuery = from x in db.ApplicationStatus select x;
-            cmbStatus.DataSource = statusQuery.ToList();
+            cmbStatus.DataSource = db.ApplicationStatus.ToList();
             cmbStatus.DisplayMember = "JobStatus";
             cmbStatus.ValueMember = "id";
 
@@ -131,7 +125,7 @@ namespace JobApplicationTracker
                 if (c is ComboBox comboBox)
                 {
                     comboBox.SelectedIndex = -1;
-                    comboBox.Text = "Please select..";
+                    comboBox.Text = "Please select...";
                 }
             }
         }
@@ -142,7 +136,7 @@ namespace JobApplicationTracker
         /// Warns tthe user not to leave the mandatory fields unselected.
         /// 
         /// </summary>
-        private void validateAndSave()
+        private void validateMandatoryFields()
         {
             var errorMessages = new List<string>();
 
@@ -187,7 +181,7 @@ namespace JobApplicationTracker
         {
             foreach (Control c in this.Controls)
             {
-                if(c is TextBox txt)
+                if (c is TextBox txt)
                 {
                     txt.Clear();
                 }

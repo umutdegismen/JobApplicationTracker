@@ -76,7 +76,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label12.Location = new System.Drawing.Point(55, 1131);
+            this.label12.Location = new System.Drawing.Point(29, 1134);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(22, 30);
             this.label12.TabIndex = 40;
@@ -86,7 +86,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 7F);
-            this.label11.Location = new System.Drawing.Point(73, 1136);
+            this.label11.Location = new System.Drawing.Point(47, 1139);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(200, 23);
             this.label11.TabIndex = 39;
@@ -190,7 +190,7 @@
             this.cmbApplicationWebSite.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbApplicationWebSite.Name = "cmbApplicationWebSite";
             this.cmbApplicationWebSite.Size = new System.Drawing.Size(494, 38);
-            this.cmbApplicationWebSite.TabIndex = 24;
+            this.cmbApplicationWebSite.TabIndex = 4;
             // 
             // cmbWorkEnv
             // 
@@ -200,7 +200,7 @@
             this.cmbWorkEnv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbWorkEnv.Name = "cmbWorkEnv";
             this.cmbWorkEnv.Size = new System.Drawing.Size(494, 38);
-            this.cmbWorkEnv.TabIndex = 22;
+            this.cmbWorkEnv.TabIndex = 3;
             // 
             // cmbState
             // 
@@ -210,7 +210,7 @@
             this.cmbState.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbState.Name = "cmbState";
             this.cmbState.Size = new System.Drawing.Size(494, 38);
-            this.cmbState.TabIndex = 20;
+            this.cmbState.TabIndex = 2;
             // 
             // txtNotes
             // 
@@ -220,7 +220,7 @@
             this.txtNotes.Multiline = true;
             this.txtNotes.Name = "txtNotes";
             this.txtNotes.Size = new System.Drawing.Size(494, 146);
-            this.txtNotes.TabIndex = 30;
+            this.txtNotes.TabIndex = 9;
             // 
             // txtSalaryYear
             // 
@@ -229,7 +229,7 @@
             this.txtSalaryYear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSalaryYear.Name = "txtSalaryYear";
             this.txtSalaryYear.Size = new System.Drawing.Size(494, 35);
-            this.txtSalaryYear.TabIndex = 28;
+            this.txtSalaryYear.TabIndex = 6;
             // 
             // txtSalaryHour
             // 
@@ -238,7 +238,7 @@
             this.txtSalaryHour.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSalaryHour.Name = "txtSalaryHour";
             this.txtSalaryHour.Size = new System.Drawing.Size(494, 35);
-            this.txtSalaryHour.TabIndex = 26;
+            this.txtSalaryHour.TabIndex = 5;
             // 
             // txtRequiredTools
             // 
@@ -247,7 +247,7 @@
             this.txtRequiredTools.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtRequiredTools.Name = "txtRequiredTools";
             this.txtRequiredTools.Size = new System.Drawing.Size(494, 35);
-            this.txtRequiredTools.TabIndex = 23;
+            this.txtRequiredTools.TabIndex = 7;
             // 
             // txtCity
             // 
@@ -256,7 +256,7 @@
             this.txtCity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(494, 35);
-            this.txtCity.TabIndex = 18;
+            this.txtCity.TabIndex = 1;
             // 
             // label1
             // 
@@ -279,7 +279,7 @@
             this.txtCompanyName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCompanyName.Name = "txtCompanyName";
             this.txtCompanyName.Size = new System.Drawing.Size(494, 35);
-            this.txtCompanyName.TabIndex = 17;
+            this.txtCompanyName.TabIndex = 0;
             // 
             // btnSubmit
             // 
@@ -288,7 +288,7 @@
             this.btnSubmit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(223, 54);
-            this.btnSubmit.TabIndex = 33;
+            this.btnSubmit.TabIndex = 10;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
@@ -301,7 +301,7 @@
             this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(223, 54);
-            this.btnCancel.TabIndex = 34;
+            this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
@@ -311,7 +311,7 @@
             this.cmbStatus.Location = new System.Drawing.Point(372, 771);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(494, 38);
-            this.cmbStatus.TabIndex = 42;
+            this.cmbStatus.TabIndex = 8;
             // 
             // label14
             // 
