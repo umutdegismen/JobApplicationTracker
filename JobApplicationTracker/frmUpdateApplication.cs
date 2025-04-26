@@ -32,6 +32,7 @@ namespace JobApplicationTracker
         string newStatus;
         string newApplicationWebsite;
         string newJobType;
+        DateTime dateTime;
         
 
 
