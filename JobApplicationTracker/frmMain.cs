@@ -185,7 +185,7 @@ namespace JobApplicationTracker
         // menu strip click events
         private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("\"If you think cents, you get cents.\r\n\tIf you think dollars, you get dollars.\"\r\n\r\nVersion 1.0.0 \r\nDeveloped by Umut Degismen", "About", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            MessageBox.Show("\"If you think cents, you get cents.\r\n\tIf you think dollars, you get dollars.\"\r\n\r\nVersion 2.0 \r\nDeveloped by Umut Degismen", "About", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
         }
         private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
