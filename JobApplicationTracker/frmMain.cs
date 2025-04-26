@@ -244,25 +244,6 @@ namespace JobApplicationTracker
             openListStatesForm();
         }
 
-        private void btnViewStates_Click(object sender, EventArgs e)
-        {
-            openListStatesForm();
-        }
-
-        private void btnViewJobTypes_Click(object sender, EventArgs e)
-        {
-            openListJobTypesForm();
-        }
-        private void btnViewStatus_Click(object sender, EventArgs e)
-        {
-            openListStatusForm();
-        }
-
-        private void btnViewWebsites_Click(object sender, EventArgs e)
-        {
-            openListWebSitesForm();
-        }
-
         private void applicationWebsitesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openListWebSitesForm();
