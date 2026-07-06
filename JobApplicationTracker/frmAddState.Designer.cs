@@ -50,6 +50,7 @@
             this.txtStates.Name = "txtStates";
             this.txtStates.Size = new System.Drawing.Size(422, 29);
             this.txtStates.TabIndex = 4;
+            this.txtStates.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStates_KeyPress);
             // 
             // btnAddStateList
             // 
