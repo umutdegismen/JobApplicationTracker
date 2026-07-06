@@ -91,20 +91,28 @@ namespace JobApplicationTracker
         /// </summary>
         private void fillFrmUpdateApplication()
         {
-            applicationToUpdate = db.Applications.Find(idToUpdate);
+            try
+            {
+                applicationToUpdate = db.Applications.Find(idToUpdate);
 
-            txtCompanyName.Text = applicationToUpdate.CompanyName;
-            txtCity.Text = applicationToUpdate.City;
+                txtCompanyName.Text = applicationToUpdate.CompanyName;
+                txtCity.Text = applicationToUpdate.City;
 
-            // if the salary textboxes have value, format it 'C0'. If not, do nothing.
-            txtSalaryHour.Text = applicationToUpdate.SalaryPerHour.HasValue ? applicationToUpdate.SalaryPerHour.Value.ToString("c0") : "";
-            txtSalaryYear.Text = applicationToUpdate.SalaryPerYear.HasValue ? applicationToUpdate.SalaryPerYear.Value.ToString("c0") : "";
-            txtRequiredTools.Text = applicationToUpdate.RequiredAdditionalTools;
-            txtNotes.Text = applicationToUpdate.Notes;
-            cmbState.SelectedValue = applicationToUpdate.StateId;
-            cmbStatus.SelectedValue = applicationToUpdate.StatusId;
-            cmbApplicationWebSite.SelectedValue = applicationToUpdate.ApplicationWebsiteId;
-            cmbWorkEnv.SelectedValue = applicationToUpdate.JobTypeId;
+                // if the salary textboxes have value, format it 'C0'. If not, do nothing.
+                txtSalaryHour.Text = applicationToUpdate.SalaryPerHour.HasValue ? applicationToUpdate.SalaryPerHour.Value.ToString("c0") : "";
+                txtSalaryYear.Text = applicationToUpdate.SalaryPerYear.HasValue ? applicationToUpdate.SalaryPerYear.Value.ToString("c0") : "";
+                txtRequiredTools.Text = applicationToUpdate.RequiredAdditionalTools;
+                txtNotes.Text = applicationToUpdate.Notes;
+                cmbState.SelectedValue = applicationToUpdate.StateId;
+                cmbStatus.SelectedValue = applicationToUpdate.StatusId;
+                cmbApplicationWebSite.SelectedValue = applicationToUpdate.ApplicationWebsiteId;
+                cmbWorkEnv.SelectedValue = applicationToUpdate.JobTypeId;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                
+            }
 
 
         }

@@ -22,9 +22,9 @@ namespace JobApplicationTracker
 
         private void btnAddStateList_Click(object sender, EventArgs e)
         {
-            if(txtStates.Text == "")
+            if (txtStates.Text == "")
             {
-                MessageBox.Show("Please enter a state name!","Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Please enter a state name!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -44,7 +44,7 @@ namespace JobApplicationTracker
                 {
                     if (txtStates.Text.Length > 20)
                     {
-                        MessageBox.Show("Website name is too long! Please enter a shorter name.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("State name is too long! Please enter a shorter state name.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         txtStates.Text = "";
                         return;
                     }
@@ -82,6 +82,15 @@ namespace JobApplicationTracker
             frmListStates f = (frmListStates)System.Windows.Forms.Application.OpenForms["frmListStates"];
             f.dgvStates.Columns.Clear();
             f.listStates();
+        }
+
+        // Avoid entering numbers. Allow only letters and backspace.
+        private void txtStates_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
