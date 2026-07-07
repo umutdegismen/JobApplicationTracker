@@ -60,6 +60,7 @@
             this.txtUpdateJobType.Name = "txtUpdateJobType";
             this.txtUpdateJobType.Size = new System.Drawing.Size(514, 29);
             this.txtUpdateJobType.TabIndex = 14;
+            this.txtUpdateJobType.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdateJobType_KeyPress);
             // 
             // btnUpdateJobType
             // 

@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -45,7 +46,7 @@ namespace JobApplicationTracker
                 {
                     if (txtJobType.Text.Length > 20)
                     {
-                        MessageBox.Show("Website name is too long! Please enter a shorter name.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Job type is too long! Please enter a shorter one.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         txtJobType.Text = "";
                         return;
                     }
@@ -76,6 +77,15 @@ namespace JobApplicationTracker
             frmListJobTypes f = (frmListJobTypes)System.Windows.Forms.Application.OpenForms["frmListJobTypes"];
             f.dgvJobTypes.Columns.Clear();
             f.listJobTypes();
+        }
+
+        // Avoid entering numbers. Allow only letters, space and backspace.
+        private void txtJobType_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -44,7 +44,7 @@ namespace JobApplicationTracker
                 {
                     if (txtWebsite.Text.Length > 20)
                     {
-                        MessageBox.Show("Website name is too long! Please enter a shorter name.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Website name is too long! Please enter a shorter one.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         txtWebsite.Text = "";
                         return;
                     }

@@ -55,10 +55,16 @@ namespace JobApplicationTracker
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            idToDeleteOrUpdate = Convert.ToInt32(dgvStatus.SelectedRows[0].Cells[0].Value);
-
-            frmUpdateStatus f = new frmUpdateStatus(idToDeleteOrUpdate);
-            f.Show();
+            try
+            {
+                idToDeleteOrUpdate = Convert.ToInt32(dgvStatus.SelectedRows[0].Cells[0].Value);
+                frmUpdateStatus f = new frmUpdateStatus(idToDeleteOrUpdate);
+                f.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please select a 'Job Status'!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)

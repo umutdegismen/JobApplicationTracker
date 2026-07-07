@@ -86,11 +86,11 @@ namespace JobApplicationTracker
         {
             this.Close();
         }
-        
-        // Avoid entering numbers. Allow only letters and backspace.
+
+        // Avoid entering numbers. Allow only letters, space and backspace.
         private void txtUpdateStates_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if(!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
             {
                 e.Handled = true;
             }

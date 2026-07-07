@@ -69,6 +69,7 @@
             this.txtJobType.Name = "txtJobType";
             this.txtJobType.Size = new System.Drawing.Size(422, 29);
             this.txtJobType.TabIndex = 12;
+            this.txtJobType.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtJobType_KeyPress);
             // 
             // frmAddJobType
             // 

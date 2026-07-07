@@ -60,6 +60,7 @@
             this.txtUpdateStatus.Name = "txtUpdateStatus";
             this.txtUpdateStatus.Size = new System.Drawing.Size(422, 29);
             this.txtUpdateStatus.TabIndex = 14;
+            this.txtUpdateStatus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUpdateStatus_KeyPress);
             // 
             // btnUpdateStatus
             // 

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -88,6 +89,15 @@ namespace JobApplicationTracker
         private void btnCancelUpdate_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        // Avoid entering numbers.Allow only letters and backspace.
+        private void txtUpdateJobType_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
