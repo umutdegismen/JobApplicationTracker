@@ -100,10 +100,16 @@ namespace JobApplicationTracker
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            selectedRowId = Convert.ToInt32(dgvWebsites.SelectedRows[0].Cells[0].Value);
-
-            frmUpdateWebsites f = new frmUpdateWebsites(selectedRowId);
-            f.Show();
+            try
+            {
+                selectedRowId = Convert.ToInt32(dgvWebsites.SelectedRows[0].Cells[0].Value);
+                frmUpdateWebsites f = new frmUpdateWebsites(selectedRowId);
+                f.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please select a 'Website'!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)

@@ -31,10 +31,17 @@ namespace JobApplicationTracker
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            idToDeleteOrUpdate = Convert.ToInt32(dgvStates.SelectedRows[0].Cells[0].Value);
+            try
+            {
+                idToDeleteOrUpdate = Convert.ToInt32(dgvStates.SelectedRows[0].Cells[0].Value);
 
-            frmUpdateState f = new frmUpdateState(idToDeleteOrUpdate);
-            f.Show();
+                frmUpdateState f = new frmUpdateState(idToDeleteOrUpdate);
+                f.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please select a 'State'!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)

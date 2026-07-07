@@ -69,6 +69,7 @@
             this.txtAddStatus.Name = "txtAddStatus";
             this.txtAddStatus.Size = new System.Drawing.Size(422, 29);
             this.txtAddStatus.TabIndex = 12;
+            this.txtAddStatus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAddStatus_KeyPress);
             // 
             // frmAddStatus
             // 

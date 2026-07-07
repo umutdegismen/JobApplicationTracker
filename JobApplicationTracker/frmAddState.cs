@@ -44,7 +44,7 @@ namespace JobApplicationTracker
                 {
                     if (txtStates.Text.Length > 20)
                     {
-                        MessageBox.Show("State name is too long! Please enter a shorter state name.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("State name is too long! Please enter a shorter one.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         txtStates.Text = "";
                         return;
                     }
@@ -84,10 +84,10 @@ namespace JobApplicationTracker
             f.listStates();
         }
 
-        // Avoid entering numbers. Allow only letters and backspace.
+        // Avoid entering numbers. Allow only letters, space and backspace.
         private void txtStates_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
             {
                 e.Handled = true;
             }
