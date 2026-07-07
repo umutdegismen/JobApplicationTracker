@@ -68,7 +68,7 @@ namespace JobApplicationTracker
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Please select a 'State'!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 

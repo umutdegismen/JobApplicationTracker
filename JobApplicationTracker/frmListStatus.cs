@@ -69,32 +69,36 @@ namespace JobApplicationTracker
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            idToDeleteOrUpdate = Convert.ToInt32(dgvStatus.SelectedRows[0].Cells[0].Value);
-            ApplicationStatu statusToDelete = db.ApplicationStatus.Find(idToDeleteOrUpdate);
-            string statusDeleteStr = statusToDelete.JobStatus;
-
-            DialogResult ds = MessageBox.Show("Do you want to delete '" + statusDeleteStr + "' ?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (ds == DialogResult.Yes)
+            try
             {
-                try
-                {
-                    db.ApplicationStatus.Remove(statusToDelete);
-                    db.SaveChanges();
+                idToDeleteOrUpdate = Convert.ToInt32(dgvStatus.SelectedRows[0].Cells[0].Value);
+                ApplicationStatu statusToDelete = db.ApplicationStatus.Find(idToDeleteOrUpdate);
+                string statusDeleteStr = statusToDelete.JobStatus;
 
-                    MessageBox.Show("'" + statusDeleteStr + "' is successfully deleted!");
+                DialogResult ds = MessageBox.Show("Do you want to delete '" + statusDeleteStr + "' ?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                    dgvStatus.Columns.Clear();
-                    listStatus();
-                }
-                catch (Exception ex)
+                if (ds == DialogResult.Yes)
                 {
-                    MessageBox.Show(ex.Message);
+                    try
+                    {
+                        db.ApplicationStatus.Remove(statusToDelete);
+                        db.SaveChanges();
+
+                        MessageBox.Show("'" + statusDeleteStr + "' is successfully deleted!");
+
+                        dgvStatus.Columns.Clear();
+                        listStatus();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
             }
-
-
-
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please select a 'Job Status'!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
