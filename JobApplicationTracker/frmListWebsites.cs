@@ -114,28 +114,35 @@ namespace JobApplicationTracker
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            selectedRowId = Convert.ToInt32(dgvWebsites.SelectedRows[0].Cells[0].Value);
-            ApplicationWebsite selectedWebsite = db.ApplicationWebsites.Find(selectedRowId);
-            string websiteName = selectedWebsite.ApplicationWebsite1;
-
-            DialogResult ds = MessageBox.Show($"Do you want to delete '{websiteName}'", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-            if (ds == DialogResult.OK)
+            try
             {
-                try
-                {
-                    db.ApplicationWebsites.Remove(selectedWebsite);
-                    db.SaveChanges();
+                selectedRowId = Convert.ToInt32(dgvWebsites.SelectedRows[0].Cells[0].Value);
+                ApplicationWebsite selectedWebsite = db.ApplicationWebsites.Find(selectedRowId);
+                string websiteName = selectedWebsite.ApplicationWebsite1;
 
-                    MessageBox.Show($"'{websiteName}' is successfully deleted!");
+                DialogResult ds = MessageBox.Show($"Do you want to delete '{websiteName}'", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
-                    dgvWebsites.Columns.Clear();
-                    listWebsites();
-                }
-                catch (Exception ex)
+                if (ds == DialogResult.OK)
                 {
-                    MessageBox.Show(ex.Message);
+                    try
+                    {
+                        db.ApplicationWebsites.Remove(selectedWebsite);
+                        db.SaveChanges();
+
+                        MessageBox.Show($"'{websiteName}' is successfully deleted!");
+
+                        dgvWebsites.Columns.Clear();
+                        listWebsites();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please select a 'Website'!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }

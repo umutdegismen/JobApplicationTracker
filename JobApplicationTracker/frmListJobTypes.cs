@@ -55,34 +55,40 @@ namespace JobApplicationTracker
                 frmUpdateJobType f = new frmUpdateJobType(idToDeleteOrUpdate);
                 f.Show();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("Please select a 'Job Type'!","Warning",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                MessageBox.Show("Please select a 'Job Type'!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            idToDeleteOrUpdate = Convert.ToInt32(dgvJobTypes.SelectedRows[0].Cells[0].Value);
-
-            JobType jobTypeToDelete = db.JobTypes.Find(idToDeleteOrUpdate);
-            string jobType = jobTypeToDelete.JobType1;
-
-            DialogResult ds = MessageBox.Show("Do you want to delete '" + jobType + "'", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if(ds == DialogResult.Yes)
+            try
             {
-                // delete the selected row and save changes to DataBase
-                db.JobTypes.Remove(jobTypeToDelete);
-                db.SaveChanges();
+                idToDeleteOrUpdate = Convert.ToInt32(dgvJobTypes.SelectedRows[0].Cells[0].Value);
 
-                MessageBox.Show("'" + jobType + "' is succesfully deleted!");
+                JobType jobTypeToDelete = db.JobTypes.Find(idToDeleteOrUpdate);
+                string jobType = jobTypeToDelete.JobType1;
 
-                // refresh the DataGridView
-                CommonMethods.dgvClear(dgvJobTypes);
-                listJobTypes();
+                DialogResult ds = MessageBox.Show("Do you want to delete '" + jobType + "'", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (ds == DialogResult.Yes)
+                {
+                    // delete the selected row and save changes to DataBase
+                    db.JobTypes.Remove(jobTypeToDelete);
+                    db.SaveChanges();
+
+                    MessageBox.Show("'" + jobType + "' is succesfully deleted!");
+
+                    // refresh the DataGridView
+                    CommonMethods.dgvClear(dgvJobTypes);
+                    listJobTypes();
+                }
             }
-
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please select a 'Job Type'!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
