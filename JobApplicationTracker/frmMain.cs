@@ -20,7 +20,7 @@ namespace JobApplicationTracker
         // variables
         JobApplicationDBEntities db = new JobApplicationDBEntities();
         int idToDeleteOrUpdate;
-        
+
 
         public frmMain()
         {
@@ -34,7 +34,7 @@ namespace JobApplicationTracker
             //dgvJobsListWithEntityFramework();
         }
 
-        
+
 
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace JobApplicationTracker
                     dgvJobs.DataSource = dt;
                 }
             }
-            
+
             // numarating thr first column of the datagridview
             CommonMethods.numerateDataGridView(dgvJobs);
 
@@ -67,7 +67,7 @@ namespace JobApplicationTracker
             {
                 header.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
-            
+
 
             // setting up the datagridview
             dgvJobs.Columns[0].Visible = false;
@@ -175,7 +175,7 @@ namespace JobApplicationTracker
                 frmUpdateApplication f = new frmUpdateApplication(idToDeleteOrUpdate);
                 f.ShowDialog();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Please select an application for editing!");
             }
@@ -185,7 +185,18 @@ namespace JobApplicationTracker
         // menu strip click events
         private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("\"If you think cents, you get cents.\r\n\tIf you think dollars, you get dollars.\"\r\n\r\nVersion 2.0 \r\nDeveloped by Umut Degismen", "About", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            string message =
+                            "\"If you think pennies, you get pennies.\n If you think dollars, you get dollars.\"\n\n" +
+                            "— Ahmet Ertegun\n\n" +
+                            "Version 2.1.0\n\n" +
+                            "© 2026 Umut Degismen\n" +
+                            "All rights reserved.";
+
+            MessageBox.Show(
+                message,
+                "About",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
 
         }
         private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
